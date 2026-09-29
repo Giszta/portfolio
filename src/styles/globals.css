@@ -17,7 +17,7 @@
 
   /* Archivo ma oś szerokości — lekko rozszerzony krój nagłówków */
   .font-display {
-    font-stretch: 112.5%;
+    font-stretch: 118%;
   }
 
   ::selection {
@@ -55,6 +55,35 @@
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
 }
 
+@utility pattern-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in oklab, var(--color-cut) 22%, transparent) 0 1px,
+    transparent 1px 9px
+  );
+}
+
+@utility pattern-hatch-engineering {
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in oklab, var(--color-view-engineering) 18%, transparent) 0 1px,
+    transparent 1px 9px
+  );
+}
+
+@utility type-outline {
+  --outline-color: var(--color-view-engineering);
+
+  @supports (-webkit-text-stroke: 1px) {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--outline-color);
+  }
+
+  @media (forced-colors: active) {
+    color: CanvasText;
+    -webkit-text-stroke: 0;
+  }
+}
 /* ================= REVEAL (progressive enhancement) ================= */
 @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
   [data-reveal="hidden"] {

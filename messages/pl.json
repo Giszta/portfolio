@@ -1,0 +1,113 @@
+{
+  "common": {
+    "skipToContent": "Przejdź do treści",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "downloadCv": "Pobierz CV",
+    "readCaseStudy": "Zobacz case study",
+    "views": {
+      "engineering": "Widok inżynierski",
+      "software": "Widok programistyczny"
+    },
+    "status": {
+      "shipped": "Wdrożony",
+      "prototype": "Prototyp",
+      "concept": "Koncepcja",
+      "planned": "Planowany"
+    },
+    "notFound": {
+      "title": "Nie znaleziono strony",
+      "description": "Tego przekroju nie ma na rysunku.",
+      "backHome": "Wróć na stronę główną"
+    }
+  },
+
+  "navigation": {
+    "label": "Główna",
+    "work": "Projekty",
+    "experience": "Doświadczenie",
+    "stack": "Technologie",
+    "about": "O mnie",
+    "contact": "Kontakt",
+    "languageSwitcher": {
+      "label": "Język",
+      "switchTo": "Zmień język na {language}"
+    },
+    "languages": {
+      "pl": "Polski",
+      "en": "English"
+    }
+  },
+
+  "hero": {
+    "availability": "Otwarty na nowe możliwości",
+    "titleOutline": "Inżynier,",
+    "titleSolid": "który koduje.",
+    "lead": "Dwa spojrzenia na ten sam problem. 7+ lat doświadczenia w inżynierii mechanicznej po jednej stronie — programowanie, AI i automatyzacja po drugiej.",
+    "ctaPrimary": "Zobacz projekty",
+    "dragHint": "Przeciągnij linię."
+  },
+
+  "projects": {
+    "cutLabel": "Przekroje",
+    "title": "Wybrane projekty",
+    "problem": "Problem",
+    "solution": "Rozwiązanie"
+  },
+
+  "engineering": {
+    "cutLabel": "Historia doświadczenia",
+    "title": "7+ lat doświadczenia.",
+    "lead": "Inżynieria nie jest etapem, który zostawiłem za sobą. To doświadczenie, które dziś wykorzystuję do rozwiązywania problemów za pomocą oprogramowania."
+  },
+
+  "technology": {
+    "cutLabel": "Specyfikacja",
+    "title": "Z czego korzystam.",
+    "engineering": "Inżynieria",
+    "software": "Programowanie"
+  },
+
+  "about": {
+    "cutLabel": "O mnie",
+    "title": "Jestem Adam — inżynier mechanik, który tworzy oprogramowanie."
+  },
+
+  "contact": {
+    "cutLabel": "Połączmy te światy",
+    "titleOutline": "Połączmy",
+    "titleSolid": "te światy.",
+    "lead": "Interesują mnie role związane z oprogramowaniem, AI i automatyzacją — szczególnie tam, gdzie doświadczenie inżynierskie ma znaczenie."
+  },
+
+  "footer": {
+    "copyright": "© {year} Adam · Inżynier, który koduje"
+  },
+
+  "caseStudies": {
+    "backToProjects": "Wróć do projektów",
+    "forge": {
+      "title": "FORGE",
+      "subtitle": "Przestrzeń AI do projektowania i inżynierii"
+    },
+    "nexus": {
+      "title": "NEXUS",
+      "subtitle": "Przestrzeń wiedzy wspierana przez AI"
+    },
+    "engineering-automation": {
+      "title": "Automatyzacja inżynierska",
+      "subtitle": "Automatyzacja CAD i procesów inżynierskich"
+    }
+  },
+
+  "seo": {
+    "siteName": "Adam — Inżynier, który koduje",
+    "home": {
+      "title": "Inżynier, który koduje — inżynier mechanik tworzący oprogramowanie",
+      "description": "Portfolio inżyniera mechanika z 7+ latami doświadczenia, łączącego wiedzę inżynierską z programowaniem, AI i automatyzacją procesów technicznych."
+    },
+    "project": {
+      "description": "{title} — {subtitle}. Case study: problem, architektura, decyzje techniczne i rezultaty."
+    }
+  }
+}
