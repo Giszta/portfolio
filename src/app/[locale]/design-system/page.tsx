@@ -186,9 +186,9 @@ export default function DesignSystemPage() {
             </div>
 
             <div className="grid h-64 grid-cols-[1fr_auto_1fr] gap-6">
-              <div className="pattern-hatch-engineering rounded-sm border border-dashed border-view-engineering/45" />
+              <div className="rounded-sm border border-dashed border-view-engineering/45 pattern-hatch-engineering" />
               <CutLine orientation="vertical" mark="A" />
-              <div className="pattern-hatch rounded-sm border border-cut/40" />
+              <div className="rounded-sm border border-cut/40 pattern-hatch" />
             </div>
 
             <CutLine orientation="horizontal" mark="A" />

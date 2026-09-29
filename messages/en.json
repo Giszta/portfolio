@@ -1,0 +1,113 @@
+{
+  "common": {
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "downloadCv": "Download CV",
+    "readCaseStudy": "Read the case study",
+    "views": {
+      "engineering": "Engineering view",
+      "software": "Software view"
+    },
+    "status": {
+      "shipped": "Shipped",
+      "prototype": "Prototype",
+      "concept": "Concept",
+      "planned": "Planned"
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "This section of the drawing doesn't exist.",
+      "backHome": "Back to home"
+    }
+  },
+
+  "navigation": {
+    "label": "Main",
+    "work": "Work",
+    "experience": "Experience",
+    "stack": "Stack",
+    "about": "About",
+    "contact": "Contact",
+    "languageSwitcher": {
+      "label": "Language",
+      "switchTo": "Switch language to {language}"
+    },
+    "languages": {
+      "pl": "Polski",
+      "en": "English"
+    }
+  },
+
+  "hero": {
+    "availability": "Open to opportunities",
+    "titleOutline": "Engineer",
+    "titleSolid": "who codes.",
+    "lead": "Same part, two views. 7+ years of mechanical engineering on one side of the cut — software engineering on the other.",
+    "ctaPrimary": "See the work",
+    "dragHint": "Drag the line."
+  },
+
+  "projects": {
+    "cutLabel": "Section views",
+    "title": "Selected work",
+    "problem": "Problem",
+    "solution": "Solution"
+  },
+
+  "engineering": {
+    "cutLabel": "Revision history",
+    "title": "7+ years of engineering.",
+    "lead": "Engineering isn't my previous career — it's the foundation I bring to every software problem."
+  },
+
+  "technology": {
+    "cutLabel": "Material spec",
+    "title": "What it's made of.",
+    "engineering": "Engineering",
+    "software": "Software"
+  },
+
+  "about": {
+    "cutLabel": "About",
+    "title": "I'm Adam — a mechanical engineer who builds software."
+  },
+
+  "contact": {
+    "cutLabel": "Close the gap",
+    "titleOutline": "Let's close",
+    "titleSolid": "the gap.",
+    "lead": "Open to software, AI and automation roles — especially where engineering context matters."
+  },
+
+  "footer": {
+    "copyright": "© {year} Adam · Engineer who codes"
+  },
+
+  "caseStudies": {
+    "backToProjects": "Back to projects",
+    "forge": {
+      "title": "FORGE",
+      "subtitle": "AI Design & Engineering Workspace"
+    },
+    "nexus": {
+      "title": "NEXUS",
+      "subtitle": "AI-Powered Knowledge Workspace"
+    },
+    "engineering-automation": {
+      "title": "Engineering Automation",
+      "subtitle": "CAD / Engineering Automation"
+    }
+  },
+
+  "seo": {
+    "siteName": "Adam — Engineer who codes",
+    "home": {
+      "title": "Engineer who codes — mechanical engineer building software",
+      "description": "Portfolio of a mechanical engineer with 7+ years of experience, combining engineering expertise with TypeScript, React, Next.js, AI and automation to build software for technical workflows."
+    },
+    "project": {
+      "description": "{title} — {subtitle}. Case study covering the problem, architecture, engineering decisions and results."
+    }
+  }
+}
