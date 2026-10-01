@@ -7,7 +7,7 @@ export default function NotFound() {
   const t = useTranslations("common.notFound");
 
   return (
-    <main id="main-content" className="flex min-h-dvh items-center">
+    <main id="main-content" className="flex flex-1 items-center">
       <Container size="narrow" className="flex flex-col items-start gap-6">
         <CutLabel code="404" />
         <h1 className="font-display text-display-md font-bold">{t("title")}</h1>

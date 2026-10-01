@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 import en from "../../messages/en.json";
 import pl from "../../messages/pl.json";
 
@@ -59,36 +59,59 @@ test.describe("routing", () => {
   });
 });
 
-test.describe("language switcher", () => {
+test.describe("language switcher in the header", () => {
+  test.skip(({ isMobile }) => isMobile, "Header switcher is visible on desktop only");
+
+  const headerSwitcher = (page: Page, label: string) =>
+    page.getByRole("banner").getByRole("navigation", { name: label, exact: true });
+
   test("switches language and keeps the project slug", async ({ page }) => {
     await page.goto("/en/projects/forge");
-    await page.getByRole("link", { name: "Polski" }).click();
+    await headerSwitcher(page, en.navigation.languageSwitcher.label)
+      .getByRole("link", { name: en.navigation.languages.pl })
+      .click();
 
     await expect(page).toHaveURL(/\/pl\/projects\/forge$/);
     await expect(page.locator("html")).toHaveAttribute("lang", "pl");
-    await expect(page.getByRole("link", { name: "Polski" })).toHaveAttribute(
-      "aria-current",
-      "true",
-    );
+    await expect(
+      headerSwitcher(page, pl.navigation.languageSwitcher.label).getByRole("link", {
+        name: pl.navigation.languages.pl,
+      }),
+    ).toHaveAttribute("aria-current", "true");
   });
 
   test("works with the keyboard", async ({ page }) => {
     await page.goto("/pl");
-    await page.getByRole("link", { name: "English" }).focus();
+    await headerSwitcher(page, pl.navigation.languageSwitcher.label)
+      .getByRole("link", { name: pl.navigation.languages.en })
+      .focus();
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/\/en$/);
   });
 
   test("does not shift the layout", async ({ page }) => {
     await page.goto("/en/projects/forge");
-    const before = await page.getByRole("navigation", { name: "Language" }).boundingBox();
+    const before = await headerSwitcher(page, en.navigation.languageSwitcher.label).boundingBox();
 
-    await page.getByRole("link", { name: "Polski" }).click();
+    await headerSwitcher(page, en.navigation.languageSwitcher.label)
+      .getByRole("link", { name: en.navigation.languages.pl })
+      .click();
     await expect(page).toHaveURL(/\/pl\/projects\/forge$/);
-    const after = await page.getByRole("navigation", { name: "Język" }).boundingBox();
+    const after = await headerSwitcher(page, pl.navigation.languageSwitcher.label).boundingBox();
 
     expect(after).toEqual(before);
   });
+});
+
+test("footer switcher keeps the project slug on every device", async ({ page }) => {
+  await page.goto("/en/projects/forge");
+  await page
+    .getByRole("contentinfo")
+    .getByRole("link", { name: en.navigation.languages.pl })
+    .click();
+
+  await expect(page).toHaveURL(/\/pl\/projects\/forge$/);
+  await expect(page.locator("html")).toHaveAttribute("lang", "pl");
 });
 
 test.describe("SEO", () => {

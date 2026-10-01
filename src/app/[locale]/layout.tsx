@@ -7,7 +7,8 @@ import { routing } from "@/i18n/routing";
 import { fontVariables } from "@/lib/fonts";
 import { siteUrl } from "@/lib/site";
 import "@/styles/globals.css";
-import { LanguageSwitcher } from "@/components/navigation";
+import { SiteFooter } from "@/components/layout";
+import { SiteHeader, SkipLink } from "@/components/navigation";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -32,11 +33,13 @@ export default async function LocaleLayout({ children, params }: Readonly<Locale
   const locale = await resolveLocale(params);
 
   return (
-    <html lang={locale} className={fontVariables}>
-      <body className="min-h-dvh bg-canvas font-sans text-fg antialiased">
+    <html lang={locale} className={fontVariables} data-scroll-behavior="smooth">
+      <body className="flex min-h-dvh flex-col bg-canvas font-sans text-fg antialiased">
         <NextIntlClientProvider>
-          <LanguageSwitcher className="fixed top-4 right-4 z-50" />
+          <SkipLink />
+          <SiteHeader />
           {children}
+          <SiteFooter />
         </NextIntlClientProvider>
       </body>
     </html>

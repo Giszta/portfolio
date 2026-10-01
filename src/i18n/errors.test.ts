@@ -11,7 +11,7 @@ describe("translation lookup", () => {
 
   it("interpolates ICU arguments", () => {
     const t = createTranslator({ locale: "en", messages: en, namespace: "footer" });
-    expect(t("copyright", { year: 2026 })).toBe("© 2026 Adam · Engineer who codes");
+    expect(t("copyright", { year: 2026, name: "Adam Giszter" })).toBe("© 2026 Adam Giszter");
   });
 });
 

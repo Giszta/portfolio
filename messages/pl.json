@@ -1,6 +1,7 @@
 {
   "common": {
     "skipToContent": "Przejdź do treści",
+    "location": "Lokalizacja: {country}",
     "openMenu": "Otwórz menu",
     "closeMenu": "Zamknij menu",
     "downloadCv": "Pobierz CV",
@@ -24,10 +25,12 @@
 
   "navigation": {
     "label": "Główna",
-    "work": "Projekty",
-    "experience": "Doświadczenie",
-    "stack": "Technologie",
+    "menu": "Menu",
+    "home": "Start",
     "about": "O mnie",
+    "projects": "Projekty",
+    "engineering": "Inżynieria",
+    "technology": "Technologie",
     "contact": "Kontakt",
     "languageSwitcher": {
       "label": "Język",
@@ -81,7 +84,15 @@
   },
 
   "footer": {
-    "copyright": "© {year} Adam · Inżynier, który koduje"
+    "tagline": "Inżynieria × Software × AI",
+    "navLabel": "Stopka",
+    "socialLabel": "Znajdziesz mnie też",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "E-mail",
+    "backToTop": "Wróć na górę",
+    "copyright": "© {year} {name}",
+    "languageLabel": "Język w stopce"
   },
 
   "caseStudies": {

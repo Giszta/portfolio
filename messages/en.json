@@ -1,6 +1,7 @@
 {
   "common": {
     "skipToContent": "Skip to content",
+    "location": "Location: {country}",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "downloadCv": "Download CV",
@@ -24,10 +25,12 @@
 
   "navigation": {
     "label": "Main",
-    "work": "Work",
-    "experience": "Experience",
-    "stack": "Stack",
+    "menu": "Menu",
+    "home": "Home",
     "about": "About",
+    "projects": "Projects",
+    "engineering": "Engineering",
+    "technology": "Technology",
     "contact": "Contact",
     "languageSwitcher": {
       "label": "Language",
@@ -81,7 +84,15 @@
   },
 
   "footer": {
-    "copyright": "© {year} Adam · Engineer who codes"
+    "tagline": "Engineer × Software × AI",
+    "navLabel": "Footer",
+    "socialLabel": "Elsewhere",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email",
+    "backToTop": "Back to top",
+    "copyright": "© {year} {name}",
+    "languageLabel": "Footer language"
   },
 
   "caseStudies": {
