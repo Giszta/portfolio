@@ -13,6 +13,12 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scrollbar-gutter: stable;
+  }
+
+  /* Strona pod otwartym menu (modalny <dialog>) nie przewija się. */
+  html:has(dialog[open]:modal) {
+    overflow: hidden;
   }
 
   /* Archivo ma oś szerokości — lekko rozszerzony krój nagłówków */
@@ -29,6 +35,12 @@
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 }
 

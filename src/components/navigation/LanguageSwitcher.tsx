@@ -7,15 +7,16 @@ import { cn } from "@/lib/utils/cn";
 
 export interface LanguageSwitcherProps {
   className?: string;
+  label?: string;
 }
 
-export function LanguageSwitcher({ className }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ className, label }: LanguageSwitcherProps) {
   const locale = useLocale();
   const pathname = usePathname();
   const t = useTranslations("navigation");
 
   return (
-    <nav aria-label={t("languageSwitcher.label")} className={className}>
+    <nav aria-label={label ?? t("languageSwitcher.label")} className={className}>
       <ul className="flex rounded-sm border border-line font-mono text-label">
         {routing.locales.map((target) => {
           const isCurrent = target === locale;
