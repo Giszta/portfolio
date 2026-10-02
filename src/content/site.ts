@@ -1,3 +1,5 @@
+import type { Locale } from "next-intl";
+
 export interface GeoPoint {
   countryCode: string;
   latitude: number;
@@ -13,6 +15,8 @@ export interface SiteConfig {
     linkedin: string | null;
     email: string | null;
   };
+  availability: { city: string } | null;
+  cv: Record<Locale, string> | null;
 }
 
 export const siteConfig = {
@@ -23,5 +27,10 @@ export const siteConfig = {
     github: "https://github.com/Giszta",
     linkedin: "https://www.linkedin.com/in/adam-giszter/",
     email: "a.m.giszter@gmail.com",
+  },
+  availability: { city: "Poznań" },
+  cv: {
+    pl: "/cv/Engineer Who Codes - React TS Next Tailwind PL.pdf",
+    en: "/cv/Engineer Who Codes - React TS Next Tailwind EN.pdf",
   },
 } satisfies SiteConfig;

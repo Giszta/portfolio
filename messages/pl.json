@@ -43,12 +43,28 @@
   },
 
   "hero": {
-    "availability": "Otwarty na nowe możliwości",
+    "availability": "Otwarty na nowe możliwości · {city} · stacjonarnie / hybrydowo / zdalnie",
     "titleOutline": "Inżynier,",
     "titleSolid": "który koduje.",
-    "lead": "Dwa spojrzenia na ten sam problem. 7+ lat doświadczenia w inżynierii mechanicznej po jednej stronie — programowanie, AI i automatyzacja po drugiej.",
+    "lead": "{name} — konstruktor z ponad 7-letnim doświadczeniem w projektowaniu i produkcji, który buduje oprogramowanie dla procesów technicznych. Ta sama część, dwa widoki: rysunek po jednej stronie przekroju, kod po drugiej.",
     "ctaPrimary": "Zobacz projekty",
-    "dragHint": "Przeciągnij linię."
+    "cvFormat": "PDF",
+    "dragHint": "Przeciągnij linię A–A albo ustaw na niej fokus i użyj strzałek",
+    "cut": {
+      "label": "Linia przekroju A–A",
+      "valueText": "{drawing}% rysunku, {code}% kodu",
+      "figure": "Rysunek techniczny wału stopniowego przeciętego linią A–A. Po jednej stronie rysunek, po drugiej ta sama część wypełniona kodem.",
+      "drawingTitle": "DETAL — WAŁ STOPNIOWY",
+      "generalTolerances": "Tolerancje ogólne ISO 2768-mK",
+      "generalRadii": "Nieoznaczone promienie R{radius}",
+      "generalChamfers": "Nieoznaczone fazki {size}×45°",
+      "viewsLabel": "Widok wału",
+      "views": {
+        "drawing": "Rysunek",
+        "section": "A–A",
+        "code": "Kod"
+      }
+    }
   },
 
   "projects": {
