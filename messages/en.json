@@ -43,12 +43,28 @@
   },
 
   "hero": {
-    "availability": "Open to opportunities",
+    "availability": "Open to new opportunities · {city} · on-site / hybrid / remote",
     "titleOutline": "Engineer",
     "titleSolid": "who codes.",
-    "lead": "Same part, two views. 7+ years of mechanical engineering on one side of the cut — software engineering on the other.",
-    "ctaPrimary": "See the work",
-    "dragHint": "Drag the line."
+    "lead": "{name} — mechanical engineer with 7+ years in design and production, now building software for technical workflows. Same part, two views: the drawing on one side of the cut, the code on the other.",
+    "ctaPrimary": "See projects",
+    "cvFormat": "PDF",
+    "dragHint": "Drag line A–A — or focus it and use the arrow keys",
+    "cut": {
+      "label": "Section line A–A",
+      "valueText": "{drawing}% drawing, {code}% code",
+      "figure": "Technical drawing of a stepped shaft cut along line A–A. One side shows the drawing, the other the same part filled with code.",
+      "drawingTitle": "DETAIL — STEPPED SHAFT",
+      "generalTolerances": "General tolerances ISO 2768-mK",
+      "generalRadii": "Unspecified radii R{radius}",
+      "generalChamfers": "Unspecified chamfers {size}×45°",
+      "viewsLabel": "Shaft view",
+      "views": {
+        "drawing": "Drawing",
+        "section": "A–A",
+        "code": "Code"
+      }
+    }
   },
 
   "projects": {
