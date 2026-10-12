@@ -1,7 +1,15 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
+import {
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type KeyboardEvent,
+  type ReactNode,
+} from "react";
+import { cn } from "@/lib/utils/cn";
 
 export interface FolderItem {
   id: string;
@@ -14,27 +22,99 @@ interface ProjectFolderProps {
   labels: { tablist: string; previous: string; next: string };
 }
 
-const GHOST_OFFSETS = ["translate-x-6 translate-y-6", "translate-x-4 translate-y-4", "translate-x-2 translate-y-2"];
+interface Transition {
+  from: number;
+  to: number;
+  direction: 1 | -1;
+}
+
+
+const GHOST_OFFSETS = [
+  "translate-x-6 translate-y-6",
+  "translate-x-4 translate-y-4",
+  "translate-x-2 translate-y-2",
+];
+
+const CUT_ANIMATION: KeyframeAnimationOptions = {
+  duration: 700,
+  easing: "cubic-bezier(0.65, 0, 0.35, 1)",
+};
+
+/** Oznaczenie przekroju wg ISO 128-40 — symbol rysunkowy, identyczny w każdym języku, więc nie trafia do tłumaczeń. */
+const CUT_MARK = "B";
 
 const focusRing =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
+function canAnimate(): boolean {
+  const reducedMotion =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  return !reducedMotion && typeof HTMLElement.prototype.animate === "function";
+}
+
 export function ProjectFolder({ items, labels }: ProjectFolderProps) {
   const [active, setActive] = useState(0);
+  const [transition, setTransition] = useState<Transition | null>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cutRef = useRef<HTMLDivElement>(null);
   const baseId = useId();
   const count = items.length;
-  const ghosts = GHOST_OFFSETS.slice(GHOST_OFFSETS.length - Math.min(GHOST_OFFSETS.length, count - 1));
+  const ghosts = GHOST_OFFSETS.slice(
+    GHOST_OFFSETS.length - Math.min(GHOST_OFFSETS.length, count - 1),
+  );
 
   const tabId = (id: string) => `${baseId}-tab-${id}`;
   const panelId = (id: string) => `${baseId}-panel-${id}`;
 
-  function select(index: number, { focus = false } = {}) {
-    const next = (index + count) % count;
-    setActive(next);
+  useLayoutEffect(() => {
+    if (!transition) return;
+    const panel = panelRefs.current[transition.to];
+    const cut = cutRef.current;
+    if (!panel || !cut) return;
+
+    const forward = transition.direction === 1;
+    const reveal = panel.animate(
+      { clipPath: [forward ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)", "inset(0 0 0 0)"] },
+      CUT_ANIMATION,
+    );
+    const sweep = cut.animate(
+      {
+        transform: forward
+          ? ["translateX(0%)", "translateX(100%)"]
+          : ["translateX(100%)", "translateX(0%)"],
+        opacity: [1, 1, 0],
+      },
+      CUT_ANIMATION,
+    );
+
+    let current = true;
+    Promise.all([reveal.finished, sweep.finished]).then(
+      () => {
+        if (current) setTransition(null);
+      },
+      () => {},
+    );
+
+    return () => {
+      current = false;
+      reveal.cancel();
+      sweep.cancel();
+    };
+  }, [transition]);
+
+  function select(requested: number, { focus = false } = {}) {
+    const next = (requested + count) % count;
     const tab = tabRefs.current[next];
     if (focus) tab?.focus();
     tab?.scrollIntoView?.({ block: "nearest", inline: "nearest" });
+    if (next === active) return;
+
+    setTransition(
+      canAnimate() ? { from: active, to: next, direction: requested > active ? 1 : -1 } : null,
+    );
+    setActive(next);
   }
 
   function onKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
@@ -89,18 +169,40 @@ export function ProjectFolder({ items, labels }: ProjectFolderProps) {
           />
         ))}
 
-        {items.map((item, index) => (
+        <div className="relative grid overflow-x-clip">
+          {items.map((item, index) => {
+            const visible = index === active || index === transition?.from;
+            return (
+              <div
+                key={item.id}
+                ref={(element) => {
+                  panelRefs.current[index] = element;
+                }}
+                role="tabpanel"
+                id={panelId(item.id)}
+                aria-labelledby={tabId(item.id)}
+                hidden={!visible}
+                className={cn("relative [grid-area:1/1]", index === active && "z-10")}
+              >
+                {item.panel}
+              </div>
+            );
+          })}
+
           <div
-            key={item.id}
-            role="tabpanel"
-            id={panelId(item.id)}
-            aria-labelledby={tabId(item.id)}
-            hidden={index !== active}
-            className="relative transition-opacity duration-300 transition-discrete starting:opacity-0 motion-reduce:transition-none"
+            ref={cutRef}
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-20 opacity-0"
           >
-            {item.panel}
+            <span className="absolute inset-y-0 left-0 border-l-[1.5px] border-dashed border-amber" />
+            <span className="absolute top-1 left-0 -translate-x-1/2 bg-card px-1 font-mono text-xs font-bold text-amber">
+              {CUT_MARK}
+            </span>
+            <span className="absolute bottom-1 left-0 -translate-x-1/2 bg-card px-1 font-mono text-xs font-bold text-amber">
+              {CUT_MARK}
+            </span>
           </div>
-        ))}
+        </div>
 
         <div className="relative mt-4 flex justify-end gap-2">
           <button

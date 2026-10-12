@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { act, fireEvent, render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { ProjectFolder, type FolderItem } from "./ProjectFolder";
 
 const ITEMS: FolderItem[] = ["A", "B", "C"].map((name) => ({
@@ -79,5 +79,81 @@ describe("ProjectFolder", () => {
     expect(selected()).toHaveTextContent("Tab C");
     fireEvent.click(screen.getByRole("button", { name: LABELS.next }));
     expect(selected()).toHaveTextContent("Tab A");
+  });
+});
+
+describe("ProjectFolder — section-cut transition", () => {
+  const originalAnimate = HTMLElement.prototype.animate;
+  const originalMatchMedia = window.matchMedia;
+
+  afterEach(() => {
+    HTMLElement.prototype.animate = originalAnimate;
+    Object.defineProperty(window, "matchMedia", {
+      configurable: true,
+      writable: true,
+      value: originalMatchMedia,
+    });
+  });
+
+  function mockMotion({ reduce }: { reduce: boolean }) {
+    Object.defineProperty(window, "matchMedia", {
+      configurable: true,
+      writable: true,
+      value: vi.fn((query: string) => ({
+        matches: reduce && query.includes("reduce"),
+        media: query,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+      })),
+    });
+
+    let release: () => void = () => {};
+    const finished = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    const animate = vi.fn(() => ({ finished, cancel: vi.fn() }));
+    HTMLElement.prototype.animate = animate as unknown as HTMLElement["animate"];
+    return { animate, release: () => release() };
+  }
+
+  it("keeps the outgoing sheet visible while the cut sweeps forward, then hides it", async () => {
+    const { animate, release } = mockMotion({ reduce: false });
+    const { tabs } = renderFolder();
+
+    fireEvent.click(tabs[1] as HTMLElement);
+
+    expect(screen.getByText("Panel B")).toBeVisible();
+    expect(screen.getByText("Panel A")).toBeVisible();
+    expect(animate).toHaveBeenCalledWith(
+      { clipPath: ["inset(0 100% 0 0)", "inset(0 0 0 0)"] },
+      expect.anything(),
+    );
+
+    await act(async () => {
+      release();
+    });
+    expect(screen.getByText("Panel A")).not.toBeVisible();
+  });
+
+  it("cuts from the other side when going back", () => {
+    const { animate } = mockMotion({ reduce: false });
+    renderFolder();
+
+    fireEvent.click(screen.getByRole("button", { name: LABELS.previous }));
+
+    expect(animate).toHaveBeenCalledWith(
+      { clipPath: ["inset(0 0 0 100%)", "inset(0 0 0 0)"] },
+      expect.anything(),
+    );
+  });
+
+  it("switches instantly, without animation, when reduced motion is preferred", () => {
+    const { animate } = mockMotion({ reduce: true });
+    const { tabs } = renderFolder();
+
+    fireEvent.click(tabs[1] as HTMLElement);
+
+    expect(animate).not.toHaveBeenCalled();
+    expect(screen.getByText("Panel A")).not.toBeVisible();
   });
 });
