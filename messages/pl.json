@@ -22,7 +22,6 @@
       "backHome": "Wróć na stronę główną"
     }
   },
-
   "navigation": {
     "label": "Główna",
     "menu": "Menu",
@@ -41,7 +40,6 @@
       "en": "English"
     }
   },
-
   "hero": {
     "availability": "Otwarty na nowe możliwości · {city} · stacjonarnie / hybrydowo / zdalnie",
     "titleOutline": "Inżynier,",
@@ -66,39 +64,33 @@
       }
     }
   },
-
   "projects": {
     "cutLabel": "Przekroje",
     "title": "Wybrane projekty",
     "problem": "Problem",
     "solution": "Rozwiązanie"
   },
-
   "engineering": {
     "cutLabel": "Historia doświadczenia",
     "title": "7+ lat doświadczenia.",
     "lead": "Inżynieria nie jest etapem, który zostawiłem za sobą. To doświadczenie, które dziś wykorzystuję do rozwiązywania problemów za pomocą oprogramowania."
   },
-
   "technology": {
     "cutLabel": "Specyfikacja",
     "title": "Z czego korzystam.",
     "engineering": "Inżynieria",
     "software": "Programowanie"
   },
-
   "about": {
     "cutLabel": "O mnie",
     "title": "Jestem Adam — inżynier mechanik, który tworzy oprogramowanie."
   },
-
   "contact": {
     "cutLabel": "Połączmy te światy",
     "titleOutline": "Połączmy",
     "titleSolid": "te światy.",
     "lead": "Interesują mnie role związane z oprogramowaniem, AI i automatyzacją — szczególnie tam, gdzie doświadczenie inżynierskie ma znaczenie."
   },
-
   "footer": {
     "tagline": "Inżynieria × Software × AI",
     "navLabel": "Stopka",
@@ -110,23 +102,6 @@
     "copyright": "© {year} {name}",
     "languageLabel": "Język w stopce"
   },
-
-  "caseStudies": {
-    "backToProjects": "Wróć do projektów",
-    "forge": {
-      "title": "FORGE",
-      "subtitle": "Przestrzeń AI do projektowania i inżynierii"
-    },
-    "nexus": {
-      "title": "NEXUS",
-      "subtitle": "Przestrzeń wiedzy wspierana przez AI"
-    },
-    "engineering-automation": {
-      "title": "Automatyzacja inżynierska",
-      "subtitle": "Automatyzacja CAD i procesów inżynierskich"
-    }
-  },
-
   "seo": {
     "siteName": "Adam — Inżynier, który koduje",
     "home": {

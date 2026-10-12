@@ -39,7 +39,6 @@ const REQUIRED_NAMESPACES = [
   "technology",
   "contact",
   "footer",
-  "caseStudies",
   "seo",
 ] as const;
 
