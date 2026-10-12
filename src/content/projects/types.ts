@@ -1,3 +1,4 @@
+import type { TechId } from "../tech";
 import type { ProjectSlug } from "./slugs";
 
 export type ProjectTier = "featured" | "archive";
@@ -17,7 +18,7 @@ export interface Project {
   name: string;
   tier: ProjectTier;
   period: YearRange;
-  stack: readonly string[];
+  stack: readonly TechId[];
   links: ProjectLinks;
 }
 

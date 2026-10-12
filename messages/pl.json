@@ -65,10 +65,22 @@
     }
   },
   "projects": {
-    "cutLabel": "Przekroje",
     "title": "Wybrane projekty",
-    "problem": "Problem",
-    "solution": "Rozwiązanie"
+    "sheetLabel": "Arkusz {number} / {total}",
+    "status": {
+      "online": "Online"
+    },
+    "links": {
+      "demo": "Zobacz live",
+      "repo": "GitHub",
+      "demoLabel": "Zobacz live: {project} (otwiera się w nowej karcie)",
+      "repoLabel": "GitHub: kod projektu {project} (otwiera się w nowej karcie)"
+    },
+    "titleBlock": {
+      "stack": "Technologie",
+      "year": "Rok",
+      "sheet": "Nr ark."
+    }
   },
   "engineering": {
     "cutLabel": "Historia doświadczenia",

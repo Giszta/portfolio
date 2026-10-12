@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Hero } from "@/components/hero";
 import { SectionShell } from "@/components/layout";
+import { ProjectsSection } from "@/components/projects";
 import { resolveLocale, type LocaleParams } from "@/i18n/locale";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -27,7 +28,7 @@ export default function HomePage() {
     <main id="main-content">
       <Hero />
       <SectionShell id="about" title={t("about.title")} />
-      <SectionShell id="projects" title={t("projects.title")} tone="surface" />
+      <ProjectsSection />
       <SectionShell id="engineering" title={t("engineering.title")} />
       <SectionShell id="technology" title={t("technology.title")} tone="surface" />
       <SectionShell id="contact" title={contactTitle} />

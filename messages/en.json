@@ -65,10 +65,22 @@
     }
   },
   "projects": {
-    "cutLabel": "Section views",
     "title": "Selected work",
-    "problem": "Problem",
-    "solution": "Solution"
+    "sheetLabel": "Sheet {number} / {total}",
+    "status": {
+      "online": "Live"
+    },
+    "links": {
+      "demo": "View live",
+      "repo": "GitHub",
+      "demoLabel": "View live: {project} (opens in a new tab)",
+      "repoLabel": "GitHub: {project} source code (opens in a new tab)"
+    },
+    "titleBlock": {
+      "stack": "Tech stack",
+      "year": "Year",
+      "sheet": "Sheet no."
+    }
   },
   "engineering": {
     "cutLabel": "Revision history",

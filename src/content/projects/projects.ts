@@ -6,7 +6,7 @@ export const PROJECTS: readonly Project[] = [
     name: "NEXUS",
     tier: "featured",
     period: { start: 2026 },
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "pgvector", "Claude API"],
+    stack: ["nextjs", "typescript", "postgresql", "pgvector", "claude-api"],
     links: {
       repo: "https://github.com/Giszta/Nexus",
       demo: "https://nexus-nine-psi-67.vercel.app",
@@ -17,7 +17,7 @@ export const PROJECTS: readonly Project[] = [
     name: "Support Tickets Dashboard",
     tier: "featured",
     period: { start: 2026 },
-    stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Auth.js", "Playwright"],
+    stack: ["nextjs", "typescript", "postgresql", "prisma", "authjs", "playwright"],
     links: {
       repo: "https://github.com/Giszta/ticket-dashboard",
       demo: "https://ticket-dashboard-black.vercel.app",
@@ -28,7 +28,7 @@ export const PROJECTS: readonly Project[] = [
     name: "Twój Doradca",
     tier: "featured",
     period: { start: 2025 },
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Motion", "Resend"],
+    stack: ["nextjs", "typescript", "tailwind-css", "motion", "resend"],
     links: {
       repo: "https://github.com/Giszta/twoj-doradca",
       demo: "https://twojdoradca.pl",
@@ -39,7 +39,7 @@ export const PROJECTS: readonly Project[] = [
     name: "Fotoroman",
     tier: "featured",
     period: { start: 2023, end: 2025 },
-    stack: ["Next.js", "TypeScript", "Cloudinary", "Tailwind CSS"],
+    stack: ["nextjs", "typescript", "cloudinary", "tailwind-css"],
     links: {
       repo: "https://github.com/Giszta/photography-portfolio",
       demo: "https://www.fotoroman.pl",
@@ -50,7 +50,7 @@ export const PROJECTS: readonly Project[] = [
     name: "Postly",
     tier: "archive",
     period: { start: 2025 },
-    stack: ["Vue 3", "TypeScript", "Vuex", "Vite"],
+    stack: ["vue", "typescript", "vuex", "vite"],
     links: {
       repo: "https://github.com/Giszta/Postly",
       demo: "https://postly-seven.vercel.app",
@@ -61,7 +61,7 @@ export const PROJECTS: readonly Project[] = [
     name: "Sliding Puzzle",
     tier: "archive",
     period: { start: 2023 },
-    stack: ["React", "TypeScript", "Vite"],
+    stack: ["react", "typescript", "vite"],
     links: {
       repo: "https://github.com/Giszta/sliding-game---react-practice",
       demo: "https://sliding-game-65029.web.app",
@@ -72,7 +72,7 @@ export const PROJECTS: readonly Project[] = [
     name: "Portfolio v1",
     tier: "archive",
     period: { start: 2025 },
-    stack: ["Next.js", "TypeScript", "Framer Motion", "Resend"],
+    stack: ["nextjs", "typescript", "framer-motion", "resend"],
     links: {
       repo: "https://github.com/Giszta/portfolio-website",
       demo: null,
