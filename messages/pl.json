@@ -80,6 +80,11 @@
       "stack": "Technologie",
       "year": "Rok",
       "sheet": "Nr ark."
+    },
+    "folder": {
+      "tablist": "Projekty",
+      "previous": "Poprzedni projekt",
+      "next": "Następny projekt"
     }
   },
   "engineering": {

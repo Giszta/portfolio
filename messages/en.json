@@ -80,6 +80,11 @@
       "stack": "Tech stack",
       "year": "Year",
       "sheet": "Sheet no."
+    },
+    "folder": {
+      "tablist": "Projects",
+      "previous": "Previous project",
+      "next": "Next project"
     }
   },
   "engineering": {
