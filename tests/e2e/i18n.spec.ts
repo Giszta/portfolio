@@ -35,15 +35,8 @@ test.describe("locale detection on /", () => {
 
 test.describe("routing", () => {
   test("adds the locale prefix to paths without one", async ({ page }) => {
-    await page.goto("/projects/nexus");
-    await expect(page).toHaveURL(/\/en\/projects\/nexus$/);
-  });
-
-  test("serves the project page in Polish", async ({ page }) => {
-    await page.goto("/pl/projects/forge");
-    await expect(page.locator("html")).toHaveAttribute("lang", "pl");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(pl.caseStudies.forge.title);
-    await expect(page.getByText(pl.caseStudies.forge.subtitle)).toBeVisible();
+    await page.goto("/cokolwiek");
+    await expect(page).toHaveURL(/\/en\/cokolwiek$/);
   });
 
   test("returns a localized 404 for unknown paths", async ({ page }) => {
@@ -52,8 +45,8 @@ test.describe("routing", () => {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(pl.common.notFound.title);
   });
 
-  test("returns a localized 404 for unknown projects", async ({ page }) => {
-    const response = await page.goto("/en/projects/unknown");
+  test("has no project detail pages — projects live on the home page", async ({ page }) => {
+    const response = await page.goto("/en/projects/nexus");
     expect(response?.status()).toBe(404);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(en.common.notFound.title);
   });
@@ -65,13 +58,13 @@ test.describe("language switcher in the header", () => {
   const headerSwitcher = (page: Page, label: string) =>
     page.getByRole("banner").getByRole("navigation", { name: label, exact: true });
 
-  test("switches language and keeps the project slug", async ({ page }) => {
-    await page.goto("/en/projects/forge");
+  test("switches language", async ({ page }) => {
+    await page.goto("/en");
     await headerSwitcher(page, en.navigation.languageSwitcher.label)
       .getByRole("link", { name: en.navigation.languages.pl })
       .click();
 
-    await expect(page).toHaveURL(/\/pl\/projects\/forge$/);
+    await expect(page).toHaveURL(/\/pl$/);
     await expect(page.locator("html")).toHaveAttribute("lang", "pl");
     await expect(
       headerSwitcher(page, pl.navigation.languageSwitcher.label).getByRole("link", {
@@ -90,43 +83,45 @@ test.describe("language switcher in the header", () => {
   });
 
   test("does not shift the layout", async ({ page }) => {
-    await page.goto("/en/projects/forge");
+    await page.goto("/en");
     const before = await headerSwitcher(page, en.navigation.languageSwitcher.label).boundingBox();
 
     await headerSwitcher(page, en.navigation.languageSwitcher.label)
       .getByRole("link", { name: en.navigation.languages.pl })
       .click();
-    await expect(page).toHaveURL(/\/pl\/projects\/forge$/);
+    await expect(page).toHaveURL(/\/pl$/);
     const after = await headerSwitcher(page, pl.navigation.languageSwitcher.label).boundingBox();
 
     expect(after).toEqual(before);
   });
 });
 
-test("footer switcher keeps the project slug on every device", async ({ page }) => {
-  await page.goto("/en/projects/forge");
+test("footer switcher changes language on every device", async ({ page }) => {
+  await page.goto("/en");
   await page
     .getByRole("contentinfo")
     .getByRole("link", { name: en.navigation.languages.pl })
     .click();
 
-  await expect(page).toHaveURL(/\/pl\/projects\/forge$/);
+  await expect(page).toHaveURL(/\/pl$/);
   await expect(page.locator("html")).toHaveAttribute("lang", "pl");
 });
 
 test.describe("SEO", () => {
-  test("exposes hreflang alternates and localized OpenGraph", async ({ page }) => {
-    await page.goto("/pl/projects/forge");
+  test("home page exposes canonical, hreflang alternates and localized OpenGraph", async ({
+    page,
+  }) => {
+    await page.goto("/pl");
 
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/pl$/);
     await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute(
       "href",
-      /\/en\/projects\/forge$/,
+      /\/en$/,
     );
     await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute(
       "href",
-      /\/en\/projects\/forge$/,
+      /\/en$/,
     );
     await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "pl_PL");
-    await expect(page).toHaveTitle(/^FORGE · /);
   });
 });

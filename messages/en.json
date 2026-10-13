@@ -22,7 +22,6 @@
       "backHome": "Back to home"
     }
   },
-
   "navigation": {
     "label": "Main",
     "menu": "Menu",
@@ -41,7 +40,6 @@
       "en": "English"
     }
   },
-
   "hero": {
     "availability": "Open to new opportunities · {city} · on-site / hybrid / remote",
     "titleOutline": "Engineer",
@@ -66,39 +64,53 @@
       }
     }
   },
-
   "projects": {
-    "cutLabel": "Section views",
     "title": "Selected work",
-    "problem": "Problem",
-    "solution": "Solution"
+    "sheetLabel": "Sheet {number} / {total}",
+    "status": {
+      "online": "Live"
+    },
+    "links": {
+      "demo": "View live",
+      "repo": "GitHub",
+      "demoLabel": "View live: {project} (opens in a new tab)",
+      "repoLabel": "GitHub: {project} source code (opens in a new tab)"
+    },
+    "titleBlock": {
+      "stack": "Tech stack",
+      "year": "Year",
+      "sheet": "Sheet no."
+    },
+    "folder": {
+      "tablist": "Projects",
+      "previous": "Previous project",
+      "next": "Next project"
+    },
+    "archive": {
+      "title": "Learning projects ({count})"
+    }
   },
-
   "engineering": {
     "cutLabel": "Revision history",
     "title": "7+ years of engineering.",
     "lead": "Engineering isn't my previous career — it's the foundation I bring to every software problem."
   },
-
   "technology": {
     "cutLabel": "Material spec",
     "title": "What it's made of.",
     "engineering": "Engineering",
     "software": "Software"
   },
-
   "about": {
     "cutLabel": "About",
     "title": "I'm Adam — a mechanical engineer who builds software."
   },
-
   "contact": {
     "cutLabel": "Close the gap",
     "titleOutline": "Let's close",
     "titleSolid": "the gap.",
     "lead": "Open to software, AI and automation roles — especially where engineering context matters."
   },
-
   "footer": {
     "tagline": "Engineer × Software × AI",
     "navLabel": "Footer",
@@ -110,23 +122,6 @@
     "copyright": "© {year} {name}",
     "languageLabel": "Footer language"
   },
-
-  "caseStudies": {
-    "backToProjects": "Back to projects",
-    "forge": {
-      "title": "FORGE",
-      "subtitle": "AI Design & Engineering Workspace"
-    },
-    "nexus": {
-      "title": "NEXUS",
-      "subtitle": "AI-Powered Knowledge Workspace"
-    },
-    "engineering-automation": {
-      "title": "Engineering Automation",
-      "subtitle": "CAD / Engineering Automation"
-    }
-  },
-
   "seo": {
     "siteName": "Adam — Engineer who codes",
     "home": {

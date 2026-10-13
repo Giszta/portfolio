@@ -1,23 +1,12 @@
 import { describe, expect, it } from "vitest";
-import en from "../../../messages/en.json";
-import pl from "../../../messages/pl.json";
-import { isProjectSlug, PROJECT_SLUGS } from "./slugs";
+import { PROJECT_SLUGS } from "./slugs";
 
-describe("isProjectSlug", () => {
-  it.each(PROJECT_SLUGS)("accepts %s", (slug) => {
-    expect(isProjectSlug(slug)).toBe(true);
+describe("PROJECT_SLUGS", () => {
+  it("are unique", () => {
+    expect(new Set(PROJECT_SLUGS).size).toBe(PROJECT_SLUGS.length);
   });
 
-  it.each(["", "FORGE", "forge/", "unknown"])("rejects %j", (value) => {
-    expect(isProjectSlug(value)).toBe(false);
-  });
-});
-
-describe("project translations", () => {
-  it.each(PROJECT_SLUGS)("%s has a title and subtitle in every locale", (slug) => {
-    for (const messages of [en, pl]) {
-      expect(messages.caseStudies).toHaveProperty([slug, "title"]);
-      expect(messages.caseStudies).toHaveProperty([slug, "subtitle"]);
-    }
+  it.each(PROJECT_SLUGS)("%s is kebab-case", (slug) => {
+    expect(slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
   });
 });
