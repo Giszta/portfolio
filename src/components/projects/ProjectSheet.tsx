@@ -1,7 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { StatusIndicator } from "@/components/technical";
-import type { Project, ProjectCopy } from "@/content/projects";
+import type { Project, ProjectCopy, ProjectScreenshot } from "@/content/projects";
 import { formatYearRange } from "@/lib/years";
 import { BrowserFrame } from "./BrowserFrame";
 import { GithubMark } from "./GithubMark";
@@ -11,13 +12,16 @@ import { TechList } from "./TechList";
 interface ProjectSheetProps {
   project: Project;
   copy: ProjectCopy;
+  screenshot: ProjectScreenshot | null;
   number: number;
   total: number;
 }
 
 const pad = (value: number) => String(value).padStart(2, "0");
 
-export function ProjectSheet({ project, copy, number, total }: ProjectSheetProps) {
+const SCREENSHOT_SIZES = "(min-width: 1024px) 600px, 100vw";
+
+export function ProjectSheet({ project, copy, screenshot, number, total }: ProjectSheetProps) {
   const t = useTranslations("projects");
   const { slug, name, stack, links, period } = project;
   const headingId = `project-${slug}`;
@@ -28,6 +32,7 @@ export function ProjectSheet({ project, copy, number, total }: ProjectSheetProps
       data-slug={slug}
       className="relative border border-line bg-card p-5 shadow-[0_40px_80px_-40px_rgb(0_0_0/0.9)] sm:p-7"
     >
+
       <span
         aria-hidden="true"
         className="pointer-events-none absolute inset-2.5 border border-line/60"
@@ -35,10 +40,21 @@ export function ProjectSheet({ project, copy, number, total }: ProjectSheetProps
 
       <div className="relative grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-8">
         <BrowserFrame url={links.demo ?? links.repo}>
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(var(--color-line)_1px,transparent_1px),linear-gradient(90deg,var(--color-line)_1px,transparent_1px)] bg-[size:16px_16px]"
-          />
+          {screenshot ? (
+            <Image
+              src={screenshot.image}
+              alt={screenshot.alt}
+              fill
+              sizes={SCREENSHOT_SIZES}
+              placeholder="blur"
+              className="object-cover object-top"
+            />
+          ) : (
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-[linear-gradient(var(--color-line)_1px,transparent_1px),linear-gradient(90deg,var(--color-line)_1px,transparent_1px)] bg-[size:16px_16px]"
+            />
+          )}
         </BrowserFrame>
 
         <div>

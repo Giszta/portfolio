@@ -1,6 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import { SectionShell } from "@/components/layout";
-import { getProjectCopy, projectsByTier } from "@/content/projects";
+import { getProjectCopy, getScreenshot, projectsByTier } from "@/content/projects";
 import { formatYearRange } from "@/lib/years";
 import { ProjectFolder, type FolderItem } from "./ProjectFolder";
 import { ProjectSheet } from "./ProjectSheet";
@@ -25,6 +25,7 @@ export function ProjectsSection() {
       <ProjectSheet
         project={project}
         copy={getProjectCopy(project.slug, locale)}
+        screenshot={getScreenshot(project.slug, locale)}
         number={index + 1}
         total={featured.length}
       />

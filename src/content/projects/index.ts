@@ -21,4 +21,4 @@ export function projectsByTier(tier: ProjectTier): Project[] {
 
 export function getProjectCopy(slug: ProjectSlug, locale: Locale): ProjectCopy {
   return PROJECT_COPY[locale][slug];
-}
+}export { getScreenshot, type ProjectScreenshot } from "./screenshots";

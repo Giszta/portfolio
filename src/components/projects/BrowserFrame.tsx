@@ -28,7 +28,7 @@ export function BrowserFrame({ url, children, className }: BrowserFrameProps) {
           {displayHost(url)}
         </span>
       </div>
-      <div className="relative aspect-[16/10] bg-canvas">{children}</div>
+      <div className="relative aspect-video bg-canvas">{children}</div>
     </div>
   );
 }

@@ -2,11 +2,22 @@ import { screen, within } from "@testing-library/react";
 import { createTranslator } from "next-intl";
 import { describe, expect, it } from "vitest";
 import en from "../../../messages/en.json";
-import { getProjectCopy, PROJECTS, type Project, type ProjectSlug } from "@/content/projects";
+import {
+  getProjectCopy,
+  PROJECTS,
+  type Project,
+  type ProjectScreenshot,
+  type ProjectSlug,
+} from "@/content/projects";
 import { renderWithIntl } from "@/test-utils/renderWithIntl";
 import { ProjectSheet } from "./ProjectSheet";
 
 const t = createTranslator({ locale: "en", messages: en, namespace: "projects" });
+
+const SCREENSHOT: ProjectScreenshot = {
+  image: { src: "/shot.webp", width: 1600, height: 900, blurDataURL: "data:image/png;base64,AA==" },
+  alt: "Test screenshot description",
+};
 
 function project(slug: ProjectSlug): Project {
   const found = PROJECTS.find((item) => item.slug === slug);
@@ -14,11 +25,15 @@ function project(slug: ProjectSlug): Project {
   return found;
 }
 
-function renderSheet(item: Project, number = 1, total = 4) {
+function renderSheet(
+  item: Project,
+  { number = 1, total = 4, screenshot = null }: { number?: number; total?: number; screenshot?: ProjectScreenshot | null } = {},
+) {
   return renderWithIntl(
     <ProjectSheet
       project={item}
       copy={getProjectCopy(item.slug, "en")}
+      screenshot={screenshot}
       number={number}
       total={total}
     />,
@@ -33,7 +48,7 @@ describe("ProjectSheet", () => {
   });
 
   it("shows the sheet number and the description", () => {
-    renderSheet(project("nexus"), 2, 4);
+    renderSheet(project("nexus"), { number: 2, total: 4 });
     expect(screen.getByText(t("sheetLabel", { number: "02", total: "04" }))).toBeInTheDocument();
     expect(screen.getByText(getProjectCopy("nexus", "en").description)).toBeInTheDocument();
   });
@@ -86,5 +101,15 @@ describe("ProjectSheet", () => {
   it("shows the year range in the title block", () => {
     renderSheet(project("fotoroman"));
     expect(screen.getByText("2023\u20132025")).toBeInTheDocument();
+  });
+
+  it("shows the screenshot with its description", () => {
+    renderSheet(project("nexus"), { screenshot: SCREENSHOT });
+    expect(screen.getByRole("img", { name: SCREENSHOT.alt })).toBeInTheDocument();
+  });
+
+  it("falls back to a decorative placeholder when there is no screenshot", () => {
+    renderSheet(project("nexus"));
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 });
