@@ -2,6 +2,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { SectionShell } from "@/components/layout";
 import { getProjectCopy, getScreenshot, projectsByTier } from "@/content/projects";
 import { formatYearRange } from "@/lib/years";
+import { ProjectArchive } from "./ProjectArchive";
 import { ProjectFolder, type FolderItem } from "./ProjectFolder";
 import { ProjectSheet } from "./ProjectSheet";
 
@@ -42,6 +43,7 @@ export function ProjectsSection() {
           next: t("folder.next"),
         }}
       />
+      <ProjectArchive projects={projectsByTier("archive")} />
     </SectionShell>
   );
 }

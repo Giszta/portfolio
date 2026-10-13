@@ -85,6 +85,9 @@
       "tablist": "Projects",
       "previous": "Previous project",
       "next": "Next project"
+    },
+    "archive": {
+      "title": "Learning projects ({count})"
     }
   },
   "engineering": {
