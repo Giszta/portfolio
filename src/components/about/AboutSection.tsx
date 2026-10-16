@@ -1,6 +1,7 @@
 import { Download } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/motion";
 import { CutLabel, CutLine, StatusIndicator, formatCutMark } from "@/components/technical";
 import { Section, buttonStyles } from "@/components/ui";
 import { siteConfig, type SiteConfig } from "@/content/site";
@@ -43,18 +44,20 @@ export function AboutSection() {
           {/* Telefon: ta sama linia poziomo, między zdjęciem a tekstem. */}
           <CutLine orientation="horizontal" mark={CUT_LETTER} className="mb-10 lg:hidden" />
 
-          <div aria-hidden="true" className="mb-6">
-            <CutLabel code={formatCutMark(CUT_LETTER)} label={t("cutLabel")} />
-          </div>
+          <Reveal>
+            <div aria-hidden="true" className="mb-6">
+              <CutLabel code={formatCutMark(CUT_LETTER)} label={t("cutLabel")} />
+            </div>
 
-          <h2
-            id={HEADING_ID}
-            className="max-w-[20ch] font-display text-display-md text-balance text-fg"
-          >
-            {t("title")}
-          </h2>
+            <h2
+              id={HEADING_ID}
+              className="max-w-[20ch] font-display text-display-md text-balance text-fg"
+            >
+              {t("title")}
+            </h2>
+          </Reveal>
 
-          <div className="mt-10 flex flex-col gap-6">
+          <Reveal delay={100} className="mt-10 flex flex-col gap-6">
             <p className="max-w-[46ch] text-lg leading-relaxed text-fg lg:text-xl">
               {t.rich("lead", { strong: engineering })}
             </p>
@@ -62,9 +65,12 @@ export function AboutSection() {
             <p className={PARAGRAPH}>{t.rich("tools", { strong: emphasis })}</p>
             <p className={PARAGRAPH}>{t.rich("ai", { strong: emphasis })}</p>
             <p className={PARAGRAPH}>{t.rich("next", { strong: emphasis })}</p>
-          </div>
+          </Reveal>
 
-          <div className="mt-12 flex flex-col gap-6 border-t border-line-strong pt-8">
+          <Reveal
+            delay={200}
+            className="mt-12 flex flex-col gap-6 border-t border-line-strong pt-8"
+          >
             {availability && (
               <StatusIndicator
                 status="success"
@@ -99,7 +105,7 @@ export function AboutSection() {
                 {t("contactCta")}
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </Section>
