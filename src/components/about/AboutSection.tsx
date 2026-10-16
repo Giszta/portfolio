@@ -1,12 +1,15 @@
 import { Download } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { ReactNode } from "react";
-import { StatusIndicator } from "@/components/technical";
+import { CutLabel, CutLine, StatusIndicator, formatCutMark } from "@/components/technical";
 import { Section, buttonStyles } from "@/components/ui";
 import { siteConfig, type SiteConfig } from "@/content/site";
 import { AboutPortrait } from "./AboutPortrait";
 
 const HEADING_ID = "about-title";
+
+/** Hero ma przekrój A–A, projekty i About mają B–B. */
+const CUT_LETTER = "B";
 
 const PARAGRAPH = "max-w-[64ch] text-base leading-7 text-fg-secondary";
 
@@ -26,10 +29,24 @@ export function AboutSection() {
 
   return (
     <Section id="about" aria-labelledby={HEADING_ID} spacing="none">
-      <div className="grid lg:grid-cols-[46fr_54fr]">
+      <div className="relative grid lg:grid-cols-[46fr_54fr]">
         <AboutPortrait className="h-96 sm:h-112 lg:h-auto lg:min-h-220" />
 
+        {/* Desktop: linia cięcia na granicy kolumn (46%), strzałki patrzą na zdjęcie. */}
+        <CutLine
+          orientation="vertical"
+          mark={CUT_LETTER}
+          className="absolute inset-y-0 left-[46%] hidden -translate-x-1/2 py-6 lg:flex"
+        />
+
         <div className="px-4 py-12 sm:px-6 sm:py-16 lg:py-24 lg:pr-[max(2rem,calc((100vw_-_72rem)/2_+_2rem))] lg:pl-18">
+          {/* Telefon: ta sama linia poziomo, między zdjęciem a tekstem. */}
+          <CutLine orientation="horizontal" mark={CUT_LETTER} className="mb-10 lg:hidden" />
+
+          <div aria-hidden="true" className="mb-6">
+            <CutLabel code={formatCutMark(CUT_LETTER)} label={t("cutLabel")} />
+          </div>
+
           <h2
             id={HEADING_ID}
             className="max-w-[20ch] font-display text-display-md text-balance text-fg"
