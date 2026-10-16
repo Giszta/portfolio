@@ -103,7 +103,15 @@
   },
   "about": {
     "cutLabel": "O mnie",
-    "title": "Jestem Adam — inżynier mechanik, który tworzy oprogramowanie."
+    "title": "Rozwiązuję problemy techniczne. Kod to jedno z moich narzędzi.",
+    "lead": "Jestem <strong>konstruktorem mechanikiem</strong> z około siedmioletnim doświadczeniem. Pracuję w SolidWorksie, tworzę dokumentację techniczną i na co dzień współpracuję z produkcją i klientami. Obecnie projektuję kabiny prysznicowe, często niestandardowe, każdą dopasowaną do konkretnej sytuacji klienta.",
+    "software": "W 2023 roku zacząłem programować, żeby zbudować stronę dla firmy fotograficznej mojego taty — Fotoroman. Poszedłem dalej: <strong>TypeScript, React, Next.js, Node.js i PostgreSQL</strong> oraz projekt dla prawdziwego klienta z branży doradztwa w zakresie OZE.",
+    "tools": "W pracy zbudowałem też narzędzia dla siebie i zespołu: szablon w Excelu z VBA, z którego cały zespół korzysta przy odpowiedziach mailowych i wycenach, oraz makro do SolidWorksa generujące wizualizacje PNG z automatyczną numeracją.",
+    "ai": "Ostatnio buduję projekty full-stack i AI. <strong>NEXUS</strong> to platforma do obsługi zgłoszeń z klasyfikacją AI i RAG, w której ostateczną decyzję zawsze podejmuje człowiek.",
+    "next": "Szukam roli, w której spotykają się inżynieria i oprogramowanie: oprogramowanie inżynierskie, automatyzacja, AI lub technologie produkcyjne. Mieszkam w Poznaniu i jestem otwarty na pracę stacjonarną, hybrydową i zdalną.",
+    "photoAlt": "Portret: Adam Giszter, jedna połowa twarzy w świetle, druga w cieniu.",
+    "caption": "{name} — Engineer who codes",
+    "contactCta": "Napisz do mnie"
   },
   "contact": {
     "cutLabel": "Połączmy te światy",
