@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { AboutSection } from "@/components/about";
 import { Hero } from "@/components/hero";
 import { SectionShell } from "@/components/layout";
 import { ProjectsSection } from "@/components/projects";
@@ -27,7 +28,7 @@ export default function HomePage() {
   return (
     <main id="main-content">
       <Hero />
-      <SectionShell id="about" title={t("about.title")} />
+      <AboutSection />
       <ProjectsSection />
       <SectionShell id="engineering" title={t("engineering.title")} />
       <SectionShell id="technology" title={t("technology.title")} tone="surface" />
