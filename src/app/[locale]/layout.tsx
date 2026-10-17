@@ -9,6 +9,7 @@ import { siteUrl } from "@/lib/site";
 import "@/styles/globals.css";
 import { SiteFooter } from "@/components/layout";
 import { SiteHeader, SkipLink } from "@/components/navigation";
+import { GridPattern } from "@/components/technical";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -34,8 +35,10 @@ export default async function LocaleLayout({ children, params }: Readonly<Locale
 
   return (
     <html lang={locale} className={fontVariables} data-scroll-behavior="smooth">
-      <body className="flex min-h-dvh flex-col bg-canvas font-sans text-fg antialiased">
+      <body className="relative isolate flex min-h-dvh flex-col bg-canvas font-sans text-fg antialiased">
         <NextIntlClientProvider>
+          {/* Siatka tła: pod całą treścią, na całą wysokość dokumentu (body: relative + isolate). */}
+          <GridPattern fade={false} />
           <SkipLink />
           <SiteHeader />
           {children}

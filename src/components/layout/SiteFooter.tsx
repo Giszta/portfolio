@@ -18,7 +18,7 @@ export function SiteFooter() {
   const socialLinks = getSocialLinks(siteConfig.links);
 
   return (
-    <footer className="mt-auto border-t border-line bg-surface">
+    <footer className="mt-auto border-t border-line bg-surface/60">
       <Container className="grid gap-12 py-16 md:grid-cols-[2fr_1fr_1fr]">
         <div className="flex flex-col gap-3">
           <p className="font-display text-2xl font-semibold tracking-tight text-fg">
