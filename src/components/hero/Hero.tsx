@@ -1,5 +1,6 @@
 import { ArrowDown, Download } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
+import { CvLink } from "@/components/cv";
 import { Container, Section, buttonStyles } from "@/components/ui";
 import { siteConfig, type SiteConfig } from "@/content/site";
 import { ShaftCut } from "./ShaftCut";
@@ -10,9 +11,7 @@ const HEADING_ID = "home-title";
 export function Hero() {
   const t = useTranslations("hero");
   const tCommon = useTranslations("common");
-  const locale = useLocale();
-  const { availability, cv }: Pick<SiteConfig, "availability" | "cv"> = siteConfig;
-  const cvHref = cv?.[locale];
+  const { availability }: Pick<SiteConfig, "availability"> = siteConfig;
   const title = [t("titleOutline"), t("titleSolid")].join(" ");
 
   return (
@@ -53,23 +52,17 @@ export function Hero() {
             {t("ctaPrimary")}
             <ArrowDown aria-hidden="true" className="size-4" />
           </a>
-          {cvHref && (
-            <a
-              href={cvHref}
-              download={`Adam-Giszter-CV-${locale.toUpperCase()}.pdf`}
-              hrefLang={locale}
-              type="application/pdf"
-              className={buttonStyles({
-                variant: "secondary",
-                size: "lg",
-                className: "justify-center",
-              })}
-            >
-              <Download aria-hidden="true" className="size-4" />
-              {tCommon("downloadCv")}
-              <span className="font-mono text-label text-fg-muted">{t("cvFormat")}</span>
-            </a>
-          )}
+          <CvLink
+            className={buttonStyles({
+              variant: "secondary",
+              size: "lg",
+              className: "justify-center",
+            })}
+          >
+            <Download aria-hidden="true" className="size-4" />
+            {tCommon("downloadCv")}
+            <span className="font-mono text-label text-fg-muted">{t("cvFormat")}</span>
+          </CvLink>
         </div>
 
         <div className="w-full">

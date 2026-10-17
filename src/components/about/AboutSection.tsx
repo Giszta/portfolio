@@ -1,6 +1,7 @@
 import { Download } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
+import { CvLink } from "@/components/cv";
 import { Reveal } from "@/components/motion";
 import { CutLabel, CutLine, StatusIndicator, formatCutMark } from "@/components/technical";
 import { Section, buttonStyles } from "@/components/ui";
@@ -24,9 +25,7 @@ export function AboutSection() {
   const t = useTranslations("about");
   const tHero = useTranslations("hero");
   const tCommon = useTranslations("common");
-  const locale = useLocale();
-  const { availability, cv }: Pick<SiteConfig, "availability" | "cv"> = siteConfig;
-  const cvHref = cv?.[locale];
+  const { availability }: Pick<SiteConfig, "availability"> = siteConfig;
 
   return (
     <Section id="about" aria-labelledby={HEADING_ID} spacing="none">
@@ -78,22 +77,16 @@ export function AboutSection() {
               />
             )}
             <div className="flex flex-col gap-3 sm:flex-row">
-              {cvHref && (
-                <a
-                  href={cvHref}
-                  download={`Adam-Giszter-CV-${locale.toUpperCase()}.pdf`}
-                  hrefLang={locale}
-                  type="application/pdf"
-                  className={buttonStyles({
-                    variant: "primary",
-                    size: "lg",
-                    className: "justify-center",
-                  })}
-                >
-                  <Download aria-hidden="true" className="size-4" />
-                  {tCommon("downloadCv")}
-                </a>
-              )}
+              <CvLink
+                className={buttonStyles({
+                  variant: "primary",
+                  size: "lg",
+                  className: "justify-center",
+                })}
+              >
+                <Download aria-hidden="true" className="size-4" />
+                {tCommon("downloadCv")}
+              </CvLink>
               <a
                 href="#contact"
                 className={buttonStyles({
