@@ -4,8 +4,8 @@ import en from "../../../messages/en.json";
 import { renderWithIntl } from "@/test-utils/renderWithIntl";
 import { AboutSection } from "./AboutSection";
 
-/** Nagłówek, akapity i dolny blok — trzy obserwatory zamiast jednego na akapit. */
-const REVEAL_GROUPS = 3;
+/** Zdjęcie, nagłówek, akapity i dolny blok — po jednym obserwatorze na grupę, nie na akapit. */
+const REVEAL_GROUPS = 4;
 
 describe("AboutSection motion", () => {
   it("reveals its text in groups that all start hidden", () => {

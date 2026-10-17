@@ -12,7 +12,7 @@ const HEADING_ID = "about-title";
 /** Hero ma przekrój A–A, projekty i About mają B–B. */
 const CUT_LETTER = "B";
 
-const PARAGRAPH = "max-w-[64ch] text-base leading-7 text-fg-secondary";
+const PARAGRAPH = "max-w-[64ch] text-[0.9375rem] leading-7 text-fg-secondary";
 
 const engineering = (chunks: ReactNode) => (
   <strong className="font-semibold text-view-engineering">{chunks}</strong>
@@ -31,7 +31,7 @@ export function AboutSection() {
   return (
     <Section id="about" aria-labelledby={HEADING_ID} spacing="none">
       <div className="relative grid lg:grid-cols-[46fr_54fr]">
-        <AboutPortrait className="h-96 sm:h-112 lg:h-auto lg:min-h-220" />
+        <AboutPortrait className="h-80 sm:h-96 lg:h-auto lg:min-h-220" />
 
         {/* Desktop: linia cięcia na granicy kolumn (46%), strzałki patrzą na zdjęcie. */}
         <CutLine
@@ -42,7 +42,7 @@ export function AboutSection() {
 
         <div className="px-4 py-12 sm:px-6 sm:py-16 lg:py-24 lg:pr-[max(2rem,calc((100vw_-_72rem)/2_+_2rem))] lg:pl-18">
           {/* Telefon: ta sama linia poziomo, między zdjęciem a tekstem. */}
-          <CutLine orientation="horizontal" mark={CUT_LETTER} className="mb-10 lg:hidden" />
+          <CutLine orientation="horizontal" mark={CUT_LETTER} className="mb-8 lg:hidden" />
 
           <Reveal>
             <div aria-hidden="true" className="mb-6">
@@ -57,8 +57,8 @@ export function AboutSection() {
             </h2>
           </Reveal>
 
-          <Reveal delay={100} className="mt-10 flex flex-col gap-6">
-            <p className="max-w-[46ch] text-lg leading-relaxed text-fg lg:text-xl">
+          <Reveal variant="stagger" className="mt-10 flex flex-col gap-6">
+            <p className="max-w-[46ch] text-base leading-relaxed text-fg lg:text-lg">
               {t.rich("lead", { strong: engineering })}
             </p>
             <p className={PARAGRAPH}>{t.rich("software", { strong: emphasis })}</p>
