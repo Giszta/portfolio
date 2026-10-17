@@ -103,7 +103,15 @@
   },
   "about": {
     "cutLabel": "About",
-    "title": "I'm Adam — a mechanical engineer who builds software."
+    "title": "I solve technical problems. Code is one of my tools.",
+    "lead": "I’m a <strong>mechanical design engineer</strong> with about seven years of experience. I work in SolidWorks, produce technical documentation and work directly with production and clients. Today I design shower enclosures, many of them custom, each one shaped around a specific client’s situation.",
+    "software": "In 2023 I started programming to build a website for my dad’s photography business, Fotoroman. I kept going: <strong>TypeScript, React, Next.js, Node.js and PostgreSQL</strong>, and a project for a real client in renewable-energy advisory.",
+    "tools": "At work, I’ve also built tools for myself and my team: an Excel VBA template that everyone on the team uses for email replies and quotes, and a SolidWorks macro that generates PNG visualisations with automatic numbering.",
+    "ai": "More recently I’ve been building full-stack and AI projects. <strong>NEXUS</strong> is a ticketing platform with AI classification and RAG, where a human always makes the final call on what the AI suggests.",
+    "next": "I’m looking for a role where engineering and software meet: engineering software, automation, AI or manufacturing technology. I’m based in Poznań and open to on-site, hybrid and remote work.",
+    "photoAlt": "Portrait of Adam Giszter, one half of his face in light and the other in shadow.",
+    "caption": "{name} — Engineer who codes",
+    "contactCta": "Get in touch"
   },
   "contact": {
     "cutLabel": "Close the gap",

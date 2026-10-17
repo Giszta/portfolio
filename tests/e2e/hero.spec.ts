@@ -2,7 +2,8 @@ import { expect, test, type Page } from "@playwright/test";
 import en from "../../messages/en.json";
 import pl from "../../messages/pl.json";
 
-const cvLink = (page: Page, label: string) => page.getByRole("link", { name: new RegExp(label) });
+const cvLink = (page: Page, label: string) =>
+  page.locator("#home").getByRole("link", { name: new RegExp(label) });
 
 test.describe("hero", () => {
   test("primary call to action scrolls to the projects", async ({ page }) => {

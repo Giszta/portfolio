@@ -121,3 +121,50 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ================= REVEAL — warianty (portrait, stagger) ================= */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  [data-reveal-variant="portrait"][data-reveal] {
+    transition:
+      opacity 1100ms var(--ease-standard),
+      scale 1400ms var(--ease-emphasized);
+  }
+
+  [data-reveal-variant="portrait"][data-reveal="hidden"] {
+    translate: none;
+    scale: 1.05;
+  }
+
+  /* stagger: kontener zostaje widoczny, chowają się i wchodzą jego dzieci */
+  [data-reveal-variant="stagger"][data-reveal="hidden"] {
+    opacity: 1;
+    translate: none;
+  }
+
+  [data-reveal-variant="stagger"] > * {
+    transition:
+      opacity 700ms var(--ease-standard),
+      translate 700ms var(--ease-emphasized);
+  }
+
+  [data-reveal-variant="stagger"][data-reveal="hidden"] > * {
+    opacity: 0;
+    translate: 0 18px;
+  }
+
+  [data-reveal-variant="stagger"] > :nth-child(2) {
+    transition-delay: 90ms;
+  }
+  [data-reveal-variant="stagger"] > :nth-child(3) {
+    transition-delay: 180ms;
+  }
+  [data-reveal-variant="stagger"] > :nth-child(4) {
+    transition-delay: 270ms;
+  }
+  [data-reveal-variant="stagger"] > :nth-child(5) {
+    transition-delay: 360ms;
+  }
+  [data-reveal-variant="stagger"] > :nth-child(n + 6) {
+    transition-delay: 450ms;
+  }
+}
