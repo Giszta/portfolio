@@ -170,10 +170,43 @@
     "contactCta": "Get in touch"
   },
   "contact": {
-    "cutLabel": "Close the gap",
     "titleOutline": "Let's close",
     "titleSolid": "the gap.",
-    "lead": "Open to software, AI and automation roles — especially where engineering context matters."
+    "lead": "Open to software, AI and automation roles — especially where engineering context matters.",
+    "linksLabel": "Contact links",
+    "form": {
+      "title": "Send a message",
+      "name": {
+        "label": "Name",
+        "placeholder": "What should I call you"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Where I can reply"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "A few lines about the role or project"
+      },
+      "note": "Your message goes straight to my inbox. I only use your details to reply.",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "errors": {
+        "nameRequired": "Enter your name",
+        "nameTooLong": "Name is too long (max {max} characters)",
+        "emailRequired": "Enter your email address",
+        "emailInvalid": "Enter a valid email address",
+        "messageRequired": "Write a message",
+        "messageTooLong": "Message is too long (max {max} characters)"
+      },
+      "failure": "Couldn't send your message. Try again or write to {email}.",
+      "rateLimited": "Too many attempts. Please try again in a moment.",
+      "success": {
+        "title": "Message sent",
+        "text": "Thank you. I'll reply to the email you provided.",
+        "again": "Send another"
+      }
+    }
   },
   "footer": {
     "tagline": "Engineer × Software × AI",
