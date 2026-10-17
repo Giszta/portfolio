@@ -2,10 +2,11 @@ import { expect, test, type Page } from "@playwright/test";
 import en from "../../messages/en.json";
 import pl from "../../messages/pl.json";
 
-/** Nagłówek + akapity + dolny blok (przyciski) — tyle grup wchodzi przez <Reveal>. */
-const REVEAL_GROUPS = 3;
+/** Zdjęcie, nagłówek, akapity i dolny blok — tyle grup wchodzi przez <Reveal>. */
+const REVEAL_GROUPS = 4;
 /** top-20 = 5 rem: tyle zdjęcie zostaje pod górną krawędzią ekranu, gdy tekst się przewija. */
 const PINNED_TOP = 80;
+const PIN_TOLERANCE = 3;
 
 const section = (page: Page) => page.locator("#about");
 
@@ -72,7 +73,7 @@ test.describe("about", () => {
 });
 
 test.describe("about motion", () => {
-  test("shows all text at once when motion is reduced", async ({ page }) => {
+  test("shows everything at once when motion is reduced", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/en");
     await section(page).scrollIntoViewIfNeeded();
@@ -82,9 +83,14 @@ test.describe("about motion", () => {
     for (const group of await groups.all()) {
       await expect(group).toHaveCSS("opacity", "1");
     }
+    for (const paragraph of await section(page)
+      .locator("[data-reveal-variant='stagger'] > p")
+      .all()) {
+      await expect(paragraph).toHaveCSS("opacity", "1");
+    }
   });
 
-  test("reveals the text once the section is scrolled into view", async ({ page }) => {
+  test("reveals the portrait and the paragraphs once the section is in view", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "no-preference" });
     await page.goto("/en");
     await section(page).scrollIntoViewIfNeeded();
@@ -93,6 +99,10 @@ test.describe("about motion", () => {
     await expect(groups).toHaveCount(REVEAL_GROUPS);
     await expect(groups.first()).toHaveAttribute("data-reveal", "visible");
     await expect(groups.first()).toHaveCSS("opacity", "1");
+
+    const paragraphs = section(page).locator("[data-reveal-variant='stagger'] > p");
+    await expect(paragraphs.first()).toHaveCSS("opacity", "1");
+    await expect(paragraphs.last()).toHaveCSS("opacity", "1");
   });
 
   test("keeps the portrait pinned under the header while the text scrolls", async ({
@@ -112,7 +122,7 @@ test.describe("about motion", () => {
     });
 
     const pinnedTop = async () => Math.round((await pinned.boundingBox())?.y ?? Number.NaN);
-    await expect.poll(pinnedTop).toBeGreaterThan(PINNED_TOP - 3);
-    await expect.poll(pinnedTop).toBeLessThan(PINNED_TOP + 3);
+    await expect.poll(pinnedTop).toBeGreaterThan(PINNED_TOP - PIN_TOLERANCE);
+    await expect.poll(pinnedTop).toBeLessThan(PINNED_TOP + PIN_TOLERANCE);
   });
 });
