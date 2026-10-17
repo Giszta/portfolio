@@ -127,10 +127,35 @@
     }
   },
   "technology": {
-    "cutLabel": "Material spec",
-    "title": "What it's made of.",
+    "titleSolid": "What it's",
+    "titleOutline": "made of.",
+    "lead": "Technologies I use every day — from the interface to mechanical design.",
     "engineering": "Engineering",
-    "software": "Software"
+    "software": "Software",
+    "groupsLabel": "Technology layers",
+    "groups": {
+      "interface": {
+        "title": "Interface"
+      },
+      "backend": {
+        "title": "Backend & data"
+      },
+      "automation": {
+        "title": "AI & automation"
+      },
+      "quality": {
+        "title": "Quality & delivery"
+      },
+      "engineering": {
+        "title": "Engineering"
+      }
+    },
+    "terms": {
+      "modelling-3d": "3D modelling",
+      "technical-documentation": "Technical documentation",
+      "solidworks-macros": "SolidWorks macros",
+      "excel-vba": "Excel VBA"
+    }
   },
   "about": {
     "cutLabel": "About",

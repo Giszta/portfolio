@@ -6,6 +6,7 @@ import { EngineeringSection } from "@/components/engineering";
 import { Hero } from "@/components/hero";
 import { SectionShell } from "@/components/layout";
 import { ProjectsSection } from "@/components/projects";
+import { TechnologySection } from "@/components/technology";
 import { resolveLocale, type LocaleParams } from "@/i18n/locale";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -32,7 +33,7 @@ export default function HomePage() {
       <AboutSection />
       <ProjectsSection />
       <EngineeringSection />
-      <SectionShell id="technology" title={t("technology.title")} tone="surface" />
+      <TechnologySection />
       <SectionShell id="contact" title={contactTitle} />
     </main>
   );
