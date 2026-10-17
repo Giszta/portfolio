@@ -97,8 +97,13 @@ test.describe("about motion", () => {
 
     const groups = section(page).locator("[data-reveal]");
     await expect(groups).toHaveCount(REVEAL_GROUPS);
-    await expect(groups.first()).toHaveAttribute("data-reveal", "visible");
-    await expect(groups.first()).toHaveCSS("opacity", "1");
+    // Sekcja jest wyższa niż ekran, więc przewinięcie do niej centruje jej środek,
+    // a zdjęcie u góry zostaje poza kadrem. Czytelnik przewija od góry — robimy to samo.
+    for (const group of await groups.all()) {
+      await group.scrollIntoViewIfNeeded();
+      await expect(group).toHaveAttribute("data-reveal", "visible");
+      await expect(group).toHaveCSS("opacity", "1");
+    }
 
     const paragraphs = section(page).locator("[data-reveal-variant='stagger'] > p");
     await expect(paragraphs.first()).toHaveCSS("opacity", "1");
