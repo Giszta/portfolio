@@ -14,6 +14,18 @@ describe("Section", () => {
 
   it("applies tone and spacing", () => {
     render(<Section data-testid="s" tone="surface" spacing="compact" />);
-    expect(screen.getByTestId("s")).toHaveClass("bg-surface", "py-12");
+    expect(screen.getByTestId("s")).toHaveClass("bg-surface/60", "py-12");
+  });
+
+  it("lets the page grid show through: canvas is transparent, surface only half covers", () => {
+    render(
+      <>
+        <Section data-testid="canvas" />
+        <Section data-testid="surface" tone="surface" />
+      </>,
+    );
+    expect(screen.getByTestId("canvas")).toHaveClass("bg-transparent");
+    expect(screen.getByTestId("surface")).toHaveClass("bg-surface/60");
+    expect(screen.getByTestId("surface")).not.toHaveClass("bg-surface");
   });
 });

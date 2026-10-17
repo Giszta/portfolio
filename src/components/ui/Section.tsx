@@ -10,9 +10,13 @@ const spacings: Record<SectionSpacing, string> = {
   default: "py-20 sm:py-28",
 };
 
+/**
+ * Tła sekcji są przezroczyste (canvas) albo półprzezroczyste (surface), żeby przez nie
+ * przebijała siatka z layoutu. Krycie wraca tylko tam, gdzie treść ma własne tło.
+ */
 const tones: Record<SectionTone, string> = {
-  canvas: "bg-canvas",
-  surface: "bg-surface",
+  canvas: "bg-transparent",
+  surface: "bg-surface/60",
 };
 
 export interface SectionProps extends HTMLAttributes<HTMLElement> {
