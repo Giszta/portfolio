@@ -91,9 +91,40 @@
     }
   },
   "engineering": {
-    "cutLabel": "Historia doświadczenia",
-    "title": "7+ lat doświadczenia.",
-    "lead": "Inżynieria nie jest etapem, który zostawiłem za sobą. To doświadczenie, które dziś wykorzystuję do rozwiązywania problemów za pomocą oprogramowania."
+    "titleOutline": "7+",
+    "titleSolid": "lat inżynierii.",
+    "lead": "Przez około siedem lat projektowałem w SolidWorksie produkty, które trafiały na produkcję — z dokumentacją techniczną i w stałym kontakcie z produkcją i klientami.",
+    "measure": {
+      "start": "0",
+      "end": "7+ lat"
+    },
+    "chipsLabel": "Narzędzia i obszary",
+    "chips": {
+      "solidworks": "SolidWorks",
+      "modelling": "Modelowanie 3D",
+      "documentation": "Dokumentacja techniczna",
+      "custom": "Konstrukcje niestandardowe",
+      "enclosures": "Kabiny prysznicowe"
+    },
+    "capabilitiesLabel": "Zakres pracy inżynierskiej",
+    "capabilities": {
+      "design": {
+        "title": "Projektowanie mechaniczne",
+        "text": "Modelowanie 3D w SolidWorksie, konstrukcje niestandardowe dopasowane do sytuacji klienta."
+      },
+      "documentation": {
+        "title": "Dokumentacja techniczna",
+        "text": "Dokumentacja, według której produkcja wie, co i jak wykonać."
+      },
+      "production": {
+        "title": "Współpraca z produkcją",
+        "text": "Codzienny kontakt z produkcją i rozwiązywanie problemów technicznych na bieżąco."
+      },
+      "client": {
+        "title": "Wymagania klienta",
+        "text": "Przekładanie potrzeb klienta na rozwiązanie, które da się zaprojektować i wykonać."
+      }
+    }
   },
   "technology": {
     "cutLabel": "Specyfikacja",
