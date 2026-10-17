@@ -91,9 +91,40 @@
     }
   },
   "engineering": {
-    "cutLabel": "Revision history",
-    "title": "7+ years of engineering.",
-    "lead": "Engineering isn't my previous career — it's the foundation I bring to every software problem."
+    "titleOutline": "7+",
+    "titleSolid": "years of engineering.",
+    "lead": "For about seven years I designed products in SolidWorks that went into production — with technical documentation and constant contact with production and customers.",
+    "measure": {
+      "start": "0",
+      "end": "7+ years"
+    },
+    "chipsLabel": "Tools and areas",
+    "chips": {
+      "solidworks": "SolidWorks",
+      "modelling": "3D modelling",
+      "documentation": "Technical documentation",
+      "custom": "Custom designs",
+      "enclosures": "Shower enclosures"
+    },
+    "capabilitiesLabel": "Scope of engineering work",
+    "capabilities": {
+      "design": {
+        "title": "Mechanical design",
+        "text": "3D modelling in SolidWorks, custom designs fitted to each customer's situation."
+      },
+      "documentation": {
+        "title": "Technical documentation",
+        "text": "Documentation that tells production what to make and how."
+      },
+      "production": {
+        "title": "Working with production",
+        "text": "Daily contact with production and solving technical problems as they come up."
+      },
+      "client": {
+        "title": "Customer requirements",
+        "text": "Turning customer needs into a solution that can actually be designed and built."
+      }
+    }
   },
   "technology": {
     "cutLabel": "Material spec",
