@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { submitContact } from "@/app/actions/contact";
 import { AboutSection } from "@/components/about";
+import { ContactSection } from "@/components/contact";
 import { EngineeringSection } from "@/components/engineering";
 import { Hero } from "@/components/hero";
-import { SectionShell } from "@/components/layout";
 import { ProjectsSection } from "@/components/projects";
 import { TechnologySection } from "@/components/technology";
 import { resolveLocale, type LocaleParams } from "@/i18n/locale";
@@ -24,9 +24,6 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
 }
 
 export default function HomePage() {
-  const t = useTranslations();
-  const contactTitle = [t("contact.titleOutline"), t("contact.titleSolid")].join(" ");
-
   return (
     <main id="main-content">
       <Hero />
@@ -34,7 +31,7 @@ export default function HomePage() {
       <ProjectsSection />
       <EngineeringSection />
       <TechnologySection />
-      <SectionShell id="contact" title={contactTitle} />
+      <ContactSection action={submitContact} />
     </main>
   );
 }
