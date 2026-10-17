@@ -36,11 +36,12 @@ export function EngineeringSection() {
 
         <Reveal delay={100} className="mt-9 grid gap-8 lg:grid-cols-2 lg:gap-16">
           <p className="max-w-[46ch] text-base leading-relaxed text-fg lg:text-lg">{t("lead")}</p>
+          {/* Tag jest zwykłym <span>, więc każdy chip dostaje własne <li>. */}
           <ul aria-label={t("chipsLabel")} className="flex flex-wrap content-start gap-2">
             {CHIPS.map((key) => (
-              <Tag key={key} view="engineering">
-                {t(`chips.${key}`)}
-              </Tag>
+              <li key={key}>
+                <Tag view="engineering">{t(`chips.${key}`)}</Tag>
+              </li>
             ))}
           </ul>
         </Reveal>
