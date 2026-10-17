@@ -127,10 +127,35 @@
     }
   },
   "technology": {
-    "cutLabel": "Specyfikacja",
-    "title": "Z czego korzystam.",
+    "titleSolid": "Z czego jest",
+    "titleOutline": "zrobione.",
+    "lead": "Technologie, których używam na co dzień — od interfejsu po konstrukcję.",
     "engineering": "Inżynieria",
-    "software": "Programowanie"
+    "software": "Programowanie",
+    "groupsLabel": "Warstwy technologii",
+    "groups": {
+      "interface": {
+        "title": "Interfejs"
+      },
+      "backend": {
+        "title": "Backend i dane"
+      },
+      "automation": {
+        "title": "AI i automatyzacja"
+      },
+      "quality": {
+        "title": "Jakość i dostarczanie"
+      },
+      "engineering": {
+        "title": "Inżynieria"
+      }
+    },
+    "terms": {
+      "modelling-3d": "Modelowanie 3D",
+      "technical-documentation": "Dokumentacja techniczna",
+      "solidworks-macros": "Makra SolidWorks",
+      "excel-vba": "Excel VBA"
+    }
   },
   "about": {
     "cutLabel": "O mnie",
