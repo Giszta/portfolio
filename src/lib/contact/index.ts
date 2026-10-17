@@ -1,4 +1,5 @@
-export type { ContactResult } from "./result";
+export { HONEYPOT_FIELD, isHoneypotFilled } from "./honeypot";
+export type { ContactAction, ContactResult } from "./result";
 export {
   CONTACT_LIMITS,
   hasErrors,

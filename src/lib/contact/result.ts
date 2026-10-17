@@ -9,3 +9,6 @@ export type ContactResult =
   | { status: "error"; reason: "validation"; errors: ContactErrors }
   | { status: "error"; reason: "rate-limited" }
   | { status: "error"; reason: "failed" };
+
+/** Akcja wysyłki: w aplikacji to Server Action, w testach zwykła funkcja. */
+export type ContactAction = (formData: FormData) => Promise<ContactResult>;
