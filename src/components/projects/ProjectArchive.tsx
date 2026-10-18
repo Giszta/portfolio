@@ -15,7 +15,7 @@ export function ProjectArchive({ projects }: ProjectArchiveProps) {
   const locale = useLocale();
 
   return (
-    <details className="group mt-12 border border-dashed border-line">
+    <details className="group mt-12 border border-dashed border-line [interpolate-size:allow-keywords] [&::details-content]:h-0 [&::details-content]:overflow-clip [&::details-content]:opacity-0 [&::details-content]:transition-[height,opacity,content-visibility] [&::details-content]:transition-discrete [&::details-content]:duration-300 open:[&::details-content]:h-auto open:[&::details-content]:opacity-100 motion-reduce:[&::details-content]:transition-none">
       <summary className="flex min-h-11 cursor-pointer list-none items-center gap-3 px-5 py-4 font-mono text-sm text-fg-secondary transition-colors hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
         <ChevronRight
           aria-hidden="true"
