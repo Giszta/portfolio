@@ -168,3 +168,44 @@
     transition-delay: 450ms;
   }
 }
+
+/*
+ * Hero: wejście elementów przy ładowaniu strony. Czysty CSS, rusza bez czekania na hydratację.
+ * "fade" = przezroczystość + ruch, "rise" = tylko ruch (dla elementu LCP, żeby go nie opóźniać).
+ */
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-hero-enter] {
+    animation-duration: 600ms;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation-fill-mode: both;
+    animation-delay: calc(var(--i, 0) * 90ms);
+  }
+
+  [data-hero-enter="fade"] {
+    animation-name: hero-fade;
+  }
+
+  [data-hero-enter="rise"] {
+    animation-name: hero-rise;
+  }
+}

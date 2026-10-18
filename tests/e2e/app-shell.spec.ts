@@ -36,7 +36,9 @@ test.describe("app shell", () => {
 
     // Następny Tab startuje z treści, a nie wraca do nagłówka.
     await page.keyboard.press("Tab");
-    await expect(page.getByRole("link", { name: siteConfig.shortName })).not.toBeFocused();
+    await expect(
+      page.getByRole("link", { name: siteConfig.shortName, exact: true }),
+    ).not.toBeFocused();
   });
 
   test("keyboard focus is clearly visible", async ({ page }) => {
@@ -44,7 +46,7 @@ test.describe("app shell", () => {
     await page.keyboard.press("Tab");
     await page.keyboard.press("Tab");
 
-    const wordmark = page.getByRole("link", { name: siteConfig.shortName });
+    const wordmark = page.getByRole("link", { name: siteConfig.shortName, exact: true });
     await expect(wordmark).toBeFocused();
     await expect(wordmark).not.toHaveCSS("outline-style", "none");
   });

@@ -7,7 +7,7 @@ import { useId, useRef, type KeyboardEvent } from "react";
 import { SHAFT_EDGE_CHAMFER, SHAFT_GENERAL_FILLET } from "@/content/hero/shaft";
 import { CUT_MAX, CUT_MIN, cutFromKey, cutFromPointer, cutShares, snapCut } from "@/lib/cut";
 import { cn } from "@/lib/utils/cn";
-import { VIEW, VIEW_BOX, cutToX } from "./geometry";
+import { TRACK_INSET, VIEW, VIEW_BOX, cutToTrackPercent, cutToX } from "./geometry";
 import { ShaftCode } from "./ShaftCode";
 import { ShaftDrawing } from "./ShaftDrawing";
 import { useCut } from "./useCut";
@@ -32,13 +32,15 @@ export function ShaftCut({ className }: ShaftCutProps) {
   const cutX = useTransform(cut, cutToX);
   const drawingWidth = useTransform(cutX, (x) => x - VIEW.x);
   const codeWidth = useTransform(cutX, (x) => VIEW.x + VIEW.width - x);
-  const handleLeft = useTransform(cut, (value) => `${value}%`);
+  const handleLeft = useTransform(cut, (value) => `${cutToTrackPercent(value)}%`);
 
   const followPointer = (clientX: number) => {
     const rect = trackRef.current?.getBoundingClientRect();
     if (!rect) return;
     cut.stop();
-    cut.set(cutFromPointer(clientX, rect.left, rect.width));
+    // Arkusz leży między zapasami na znacznik, więc tor suwaka jest węższy niż cały svg.
+    const start = rect.left + rect.width * TRACK_INSET;
+    cut.set(cutFromPointer(clientX, start, rect.width * (1 - 2 * TRACK_INSET)));
   };
 
   const release = () => moveTo(snapCut(cut.get()));

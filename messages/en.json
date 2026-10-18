@@ -66,6 +66,8 @@
   },
   "projects": {
     "title": "Selected work",
+    "titleOutline": "Selected",
+    "titleSolid": "work.",
     "sheetLabel": "Sheet {number} / {total}",
     "status": {
       "online": "Live"
@@ -158,7 +160,6 @@
     }
   },
   "about": {
-    "cutLabel": "About",
     "title": "I solve technical problems. Code is one of my tools.",
     "lead": "I’m a <strong>mechanical design engineer</strong> with about seven years of experience. I work in SolidWorks, produce technical documentation and work directly with production and clients. Today I design shower enclosures, many of them custom, each one shaped around a specific client’s situation.",
     "software": "In 2023 I started programming to build a website for my dad’s photography business, Fotoroman. I kept going: <strong>TypeScript, React, Next.js, Node.js and PostgreSQL</strong>, and a project for a real client in renewable-energy advisory.",
