@@ -160,7 +160,6 @@
     }
   },
   "about": {
-    "cutLabel": "O mnie",
     "title": "Rozwiązuję problemy techniczne. Kod to jedno z moich narzędzi.",
     "lead": "Jestem <strong>konstruktorem mechanikiem</strong> z około siedmioletnim doświadczeniem. Pracuję w SolidWorksie, tworzę dokumentację techniczną i na co dzień współpracuję z produkcją i klientami. Obecnie projektuję kabiny prysznicowe, często niestandardowe, każdą dopasowaną do konkretnej sytuacji klienta.",
     "software": "W 2023 roku zacząłem programować, żeby zbudować stronę dla firmy fotograficznej mojego taty — Fotoroman. Poszedłem dalej: <strong>TypeScript, React, Next.js, Node.js i PostgreSQL</strong> oraz projekt dla prawdziwego klienta z branży doradztwa w zakresie OZE.",

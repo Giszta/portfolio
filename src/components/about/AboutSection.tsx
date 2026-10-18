@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 import { CvLink } from "@/components/cv";
 import { Reveal } from "@/components/motion";
-import { CutLabel, CutLine, StatusIndicator, formatCutMark } from "@/components/technical";
+import { CutLine, StatusIndicator } from "@/components/technical";
 import { Section, buttonStyles } from "@/components/ui";
 import { siteConfig, type SiteConfig } from "@/content/site";
 import { AboutPortrait } from "./AboutPortrait";
@@ -44,10 +44,6 @@ export function AboutSection() {
           <CutLine orientation="horizontal" mark={CUT_LETTER} className="mb-8 lg:hidden" />
 
           <Reveal>
-            <div aria-hidden="true" className="mb-6">
-              <CutLabel code={formatCutMark(CUT_LETTER)} label={t("cutLabel")} />
-            </div>
-
             <h2
               id={HEADING_ID}
               className="max-w-[20ch] font-display text-display-md text-balance text-fg"
