@@ -12,10 +12,13 @@ export function CapabilityList() {
   return (
     <ol
       aria-label={t("capabilitiesLabel")}
-      className="mt-14 grid border-t border-line-strong sm:mt-16 sm:grid-cols-2"
+      className="mt-14 grid border border-line-strong bg-surface/60 sm:mt-16 sm:grid-cols-2"
     >
       {CAPABILITIES.map((key, index) => (
-        <li key={key} className="border-b border-line sm:odd:pr-8 sm:even:border-l sm:even:pl-8">
+        <li
+          key={key}
+          className="border-b border-line px-5 last:border-b-0 sm:px-8 sm:even:border-l sm:nth-[n+3]:border-b-0"
+        >
           <Reveal
             delay={index * STAGGER_MS}
             className="grid grid-cols-[3.5rem_1fr] gap-x-2 py-6 sm:grid-cols-[4.5rem_1fr] sm:py-8"
