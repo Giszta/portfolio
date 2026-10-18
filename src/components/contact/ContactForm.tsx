@@ -8,6 +8,7 @@ import { siteConfig } from "@/content/site";
 import {
   CONTACT_LIMITS,
   HONEYPOT_FIELD,
+  STARTED_AT_FIELD,
   hasErrors,
   readContactForm,
   validateContact,
@@ -106,6 +107,12 @@ function ContactFormBody({ action, onReset }: ContactFormBodyProps) {
   const titleId = `${baseId}-title`;
   const headingRef = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const openedAt = useRef<number | null>(null);
+
+  // Moment otwarcia formularza: serwer odrzuca zgłoszenia wysłane szybciej, niż pisze człowiek.
+  useEffect(() => {
+    openedAt.current = Date.now();
+  }, []);
 
   const [state, formAction, pending] = useActionState<FormState, FormData>(
     async (_previous, formData) => {
@@ -115,6 +122,7 @@ function ContactFormBody({ action, onReset }: ContactFormBodyProps) {
         return { values, result: { status: "error", reason: "validation", errors } };
       }
       try {
+        if (openedAt.current !== null) formData.set(STARTED_AT_FIELD, String(openedAt.current));
         return { values, result: await action(formData) };
       } catch {
         return { values, result: { status: "error", reason: "failed" } };

@@ -1,20 +1,32 @@
 "use server";
 
-import {
-  hasErrors,
-  isHoneypotFilled,
-  readContactForm,
-  validateContact,
-  type ContactResult,
-} from "@/lib/contact";
+import { headers } from "next/headers";
+import type { ContactResult } from "@/lib/contact";
+import { readMailConfig } from "@/lib/contact/config";
+import { createRateLimiter } from "@/lib/contact/rateLimit";
+import { handleContact } from "@/lib/contact/submit";
+import { createResendMailer } from "@/lib/contact/transport";
+
+// 3 wiadomości na 10 minut z jednego adresu (pamięć instancji, patrz rateLimit.ts).
+const limiter = createRateLimiter({ limit: 3, windowMs: 10 * 60 * 1000 });
+
+async function clientId(): Promise<string> {
+  const requestHeaders = await headers();
+  return (
+    requestHeaders.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    requestHeaders.get("x-real-ip") ??
+    "unknown"
+  );
+}
 
 export async function submitContact(formData: FormData): Promise<ContactResult> {
-  // Bot wypełnił pole-pułapkę: odpowiadamy „sukcesem", żeby nie podpowiadać, że został wykryty.
-  if (isHoneypotFilled(formData)) return { status: "success" };
+  const config = readMailConfig(process.env);
+  if (config === null) console.warn("[contact] RESEND_API_KEY is not set, messages are not sent");
 
-  const errors = validateContact(readContactForm(formData));
-  if (hasErrors(errors)) return { status: "error", reason: "validation", errors };
-
-  // TODO (etap 5): wysyłka przez Resend i limit zapytań. Do tego czasu formularz nic nie wysyła.
-  return { status: "error", reason: "failed" };
+  return handleContact(formData, {
+    now: Date.now,
+    clientId,
+    limiter,
+    mailer: config === null ? null : createResendMailer(config),
+  });
 }
