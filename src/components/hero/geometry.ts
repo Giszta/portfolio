@@ -4,6 +4,7 @@ import {
   SHAFT_GENERAL_FILLET,
   SHAFT_STEPS,
 } from "@/content/hero/shaft";
+import { CUT_MAX } from "@/lib/cut";
 import { buildShaftPath, maxDiameter, shaftLength, type OutlineOptions } from "@/lib/shaft";
 
 export const SHAFT_LENGTH = shaftLength(SHAFT_STEPS);
@@ -45,8 +46,25 @@ export const VIEW_VERTICAL = {
   height: SHAFT_LENGTH + 2 * PAD_VERTICAL,
 } as const;
 
-export const VIEW_BOX = `${VIEW.x} ${VIEW.y} ${VIEW.width} ${VIEW.height}`;
-export const VIEW_BOX_VERTICAL = `${VIEW_VERTICAL.x} ${VIEW_VERTICAL.y} ${VIEW_VERTICAL.width} ${VIEW_VERTICAL.height}`;
+/**
+ * Zapas poza arkuszem na znacznik cięcia [mm]. Linia, strzałki i litera A wychodzą poza arkusz,
+ * więc bez zapasu viewBox obcinałby je w skrajnych położeniach. Arkusz i przycinanie się nie zmieniają.
+ */
+const MARK_ROOM_X = 40;
+const MARK_ROOM_TOP = 48;
+const MARK_ROOM_BOTTOM = 8;
+
+export const VIEW_BOX = `${VIEW.x - MARK_ROOM_X} ${VIEW.y} ${VIEW.width + 2 * MARK_ROOM_X} ${VIEW.height}`;
+export const VIEW_BOX_VERTICAL = `${VIEW_VERTICAL.x} ${VIEW_VERTICAL.y - MARK_ROOM_TOP} ${VIEW_VERTICAL.width} ${VIEW_VERTICAL.height + MARK_ROOM_TOP + MARK_ROOM_BOTTOM}`;
+
+/** Część szerokości toru (svg), którą zajmuje zapas z każdej strony. */
+export const TRACK_INSET = MARK_ROOM_X / (VIEW.width + 2 * MARK_ROOM_X);
+
+/** Wartość cięcia [%] → położenie uchwytu w % szerokości toru (arkusz leży między zapasami). */
+export function cutToTrackPercent(value: number): number {
+  const centre = CUT_MAX / 2;
+  return centre + (value - centre) * (1 - 2 * TRACK_INSET);
+}
 
 /** Wartość cięcia [%] → x na arkuszu desktop. Torem suwaka jest cała szerokość arkusza. */
 export function cutToX(value: number): number {
