@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { CvLink } from "@/components/cv";
 import { Container, Section, buttonStyles } from "@/components/ui";
 import { siteConfig, type SiteConfig } from "@/content/site";
+import { heroEnter } from "./enter";
 import { ShaftCut } from "./ShaftCut";
 import { ShaftCutMobile } from "./ShaftCutMobile";
 
@@ -18,7 +19,10 @@ export function Hero() {
     <Section id="home" aria-labelledby={HEADING_ID} className="pt-12 sm:pt-16">
       <Container className="flex flex-col items-center gap-8 text-center">
         {availability && (
-          <p className="max-w-md font-mono text-label tracking-widest text-balance text-fg-secondary uppercase sm:max-w-none">
+          <p
+            {...heroEnter(0)}
+            className="max-w-md font-mono text-label tracking-widest text-balance text-fg-secondary uppercase sm:max-w-none"
+          >
             <span
               aria-hidden="true"
               className="mr-2 inline-block size-2 rounded-full bg-success align-middle"
@@ -27,7 +31,11 @@ export function Hero() {
           </p>
         )}
 
-        <h1 id={HEADING_ID} className="w-full font-display text-display-xl text-fg">
+        <h1
+          id={HEADING_ID}
+          {...heroEnter(1)}
+          className="w-full font-display text-display-xl text-fg"
+        >
           <span className="sr-only">{title}</span>
           {/* Podział jak linia A–A: rysunek (obrys) po lewej, kod (pełne litery) po prawej */}
           <span aria-hidden="true" className="grid lg:grid-cols-2 lg:gap-x-10">
@@ -36,11 +44,14 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="max-w-2xl text-lg text-fg-secondary">
+        <p {...heroEnter(2, "rise")} className="max-w-2xl text-lg text-fg-secondary">
           {t("lead", { name: siteConfig.name })}
         </p>
 
-        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:justify-center">
+        <div
+          {...heroEnter(3)}
+          className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:justify-center"
+        >
           <a
             href="#projects"
             className={buttonStyles({
@@ -65,7 +76,7 @@ export function Hero() {
           </CvLink>
         </div>
 
-        <div className="w-full">
+        <div {...heroEnter(4)} className="w-full">
           <ShaftCut className="hidden lg:block" />
           <ShaftCutMobile className="lg:hidden" />
           <p className="mt-4 hidden font-mono text-label tracking-widest text-fg-muted uppercase lg:block">
