@@ -12,7 +12,9 @@ const featured = projectsByTier("featured");
 describe("ProjectsSection", () => {
   it("is the projects region, named by its heading", () => {
     renderWithIntl(<ProjectsSection />);
-    expect(screen.getByRole("region", { name: t("title") })).toHaveAttribute("id", "projects");
+    expect(
+      screen.getByRole("region", { name: `${t("titleOutline")} ${t("titleSolid")}` }),
+    ).toHaveAttribute("id", "projects");
   });
 
   it("has one tab per featured project, in data order", () => {

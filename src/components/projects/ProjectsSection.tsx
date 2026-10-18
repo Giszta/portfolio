@@ -1,10 +1,12 @@
 import { useLocale, useTranslations } from "next-intl";
-import { SectionShell } from "@/components/layout";
+import { Container, Section } from "@/components/ui";
 import { getProjectCopy, getScreenshot, projectsByTier } from "@/content/projects";
 import { formatYearRange } from "@/lib/years";
 import { ProjectArchive } from "./ProjectArchive";
 import { ProjectFolder, type FolderItem } from "./ProjectFolder";
 import { ProjectSheet } from "./ProjectSheet";
+
+const HEADING_ID = "projects-title";
 
 export function ProjectsSection() {
   const t = useTranslations("projects");
@@ -34,16 +36,22 @@ export function ProjectsSection() {
   }));
 
   return (
-    <SectionShell id="projects" title={t("title")} tone="surface">
-      <ProjectFolder
-        items={items}
-        labels={{
-          tablist: t("folder.tablist"),
-          previous: t("folder.previous"),
-          next: t("folder.next"),
-        }}
-      />
-      <ProjectArchive projects={projectsByTier("archive")} />
-    </SectionShell>
+    <Section id="projects" aria-labelledby={HEADING_ID} tone="surface">
+      <Container>
+        <h2 id={HEADING_ID} className="font-display text-display-md text-fg">
+          <span className="block type-outline">{t("titleOutline")}</span>{" "}
+          <span className="block">{t("titleSolid")}</span>
+        </h2>
+        <ProjectFolder
+          items={items}
+          labels={{
+            tablist: t("folder.tablist"),
+            previous: t("folder.previous"),
+            next: t("folder.next"),
+          }}
+        />
+        <ProjectArchive projects={projectsByTier("archive")} />
+      </Container>
+    </Section>
   );
 }

@@ -66,6 +66,8 @@
   },
   "projects": {
     "title": "Selected work",
+    "titleOutline": "Selected",
+    "titleSolid": "work.",
     "sheetLabel": "Sheet {number} / {total}",
     "status": {
       "online": "Live"
