@@ -20,5 +20,7 @@ export default defineConfig({
     url: baseURL,
     reuseExistingServer: !isCI,
     timeout: 180_000,
+    // Testy nie mogą wysyłać prawdziwych maili, nawet gdy .env.local ma klucz.
+    env: { RESEND_API_KEY: "" },
   },
 });
