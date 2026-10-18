@@ -170,10 +170,43 @@
     "contactCta": "Napisz do mnie"
   },
   "contact": {
-    "cutLabel": "Połączmy te światy",
     "titleOutline": "Połączmy",
     "titleSolid": "te światy.",
-    "lead": "Interesują mnie role związane z oprogramowaniem, AI i automatyzacją — szczególnie tam, gdzie doświadczenie inżynierskie ma znaczenie."
+    "lead": "Interesują mnie role związane z oprogramowaniem, AI i automatyzacją — szczególnie tam, gdzie doświadczenie inżynierskie ma znaczenie.",
+    "linksLabel": "Linki kontaktowe",
+    "form": {
+      "title": "Napisz wiadomość",
+      "name": {
+        "label": "Imię",
+        "placeholder": "Jak mam się do Ciebie zwracać"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "Adres, na który odpowiem"
+      },
+      "message": {
+        "label": "Wiadomość",
+        "placeholder": "Napisz kilka zdań o roli lub projekcie"
+      },
+      "note": "Wiadomość trafia prosto na moją skrzynkę. Używam danych wyłącznie do odpowiedzi.",
+      "submit": "Wyślij wiadomość",
+      "sending": "Wysyłanie…",
+      "errors": {
+        "nameRequired": "Podaj imię",
+        "nameTooLong": "Imię jest za długie (maks. {max} znaków)",
+        "emailRequired": "Podaj adres e-mail",
+        "emailInvalid": "Podaj poprawny adres e-mail",
+        "messageRequired": "Napisz wiadomość",
+        "messageTooLong": "Wiadomość jest za długa (maks. {max} znaków)"
+      },
+      "failure": "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz na {email}.",
+      "rateLimited": "Zbyt wiele prób. Spróbuj ponownie za chwilę.",
+      "success": {
+        "title": "Wiadomość wysłana",
+        "text": "Dziękuję. Odpiszę na podany adres e-mail.",
+        "again": "Napisz kolejną"
+      }
+    }
   },
   "footer": {
     "tagline": "Inżynieria × Software × AI",
