@@ -225,6 +225,14 @@
     "languageLabel": "Footer language"
   },
   "seo": {
+    "person": {
+      "jobTitle": "Mechanical Engineer & Software Developer"
+    },
+    "og": {
+      "name": "Adam Giszter",
+      "headline": "Engineer who codes.",
+      "tagline": "Mechanical engineering × software × AI × automation"
+    },
     "siteName": "Adam — Engineer who codes",
     "home": {
       "title": "Engineer who codes — mechanical engineer building software",
