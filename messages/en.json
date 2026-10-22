@@ -109,8 +109,8 @@
       "creo": "Creo",
       "draftsight": "DraftSight",
       "kicad": "KiCad",
-      "documentation": "Dokumentacja techniczna",
-      "custom": "Konstrukcje niestandardowe"
+      "documentation": "Technical documentation",
+      "custom": "Custom Designs"
     },
 "capabilitiesLabel": "Engineering expertise",
   "capabilities": {

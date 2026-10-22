@@ -6,7 +6,6 @@ import { renderWithIntl } from "@/test-utils/renderWithIntl";
 import { EngineeringSection } from "./EngineeringSection";
 
 const catalogs = { en, pl } as const;
-const CHIPS = ["solidworks", "modelling", "documentation", "custom", "enclosures"] as const;
 const CAPABILITIES = ["design", "documentation", "production", "client"] as const;
 
 function fullTitle(locale: keyof typeof catalogs): string {
@@ -40,7 +39,11 @@ describe("EngineeringSection", () => {
     const list = screen.getByRole("list", { name: messages.chipsLabel });
     const items = within(list).getAllByRole("listitem");
 
-    expect(items.map((item) => item.textContent)).toEqual(CHIPS.map((key) => messages.chips[key]));
+    // Kolejność chipów to decyzja projektowa, więc porównujemy zbiory: każdy chip z tłumaczeń
+    // jest na stronie i nic poza nimi.
+    expect(items.map((item) => item.textContent).sort()).toEqual(
+      Object.values(messages.chips).sort(),
+    );
   });
 
   it.each(["en", "pl"] as const)(
