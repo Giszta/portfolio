@@ -37,10 +37,9 @@ export function Hero() {
           className="w-full font-display text-display-xl text-fg"
         >
           <span className="sr-only">{title}</span>
-          {/* Podział jak linia A–A: rysunek (obrys) po lewej, kod (pełne litery) po prawej */}
-          <span aria-hidden="true" className="grid lg:grid-cols-2 lg:gap-x-10">
-            <span className="type-outline lg:text-right">{t("titleOutline")}</span>
-            <span className="lg:text-left">{t("titleSolid")}</span>
+          <span aria-hidden="true" className="flex justify-center lg:gap-5">
+            <span className="type-outline">{t("titleOutline")}</span>
+            <span>{t("titleSolid")}</span>
           </span>
         </h1>
 

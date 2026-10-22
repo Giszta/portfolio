@@ -5,7 +5,7 @@ import { CapabilityList } from "./CapabilityList";
 
 const HEADING_ID = "engineering-title";
 
-const CHIPS = ["solidworks", "modelling", "documentation", "custom", "enclosures"] as const;
+const CHIPS = ["solidworks","solidedge","inventor","creo", "autocad", "draftsight", "kicad", "documentation", "custom"] as const;
 
 export function EngineeringSection() {
   const t = useTranslations("engineering");

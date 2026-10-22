@@ -44,7 +44,7 @@
     "availability": "Open to new opportunities · {city} · on-site / hybrid / remote",
     "titleOutline": "Engineer",
     "titleSolid": "who codes.",
-    "lead": "{name} — mechanical engineer with 7+ years in design and production, now building software for technical workflows. Same part, two views: the drawing on one side of the cut, the code on the other.",
+    "lead": "{name} — a mechanical design engineer with over 7 years of experience, combining mechanical design with software development and the automation of technical processes.",    
     "ctaPrimary": "See projects",
     "cvFormat": "PDF",
     "dragHint": "Drag line A–A — or focus it and use the arrow keys",
@@ -92,88 +92,92 @@
       "title": "Learning projects ({count})"
     }
   },
-  "engineering": {
-    "titleOutline": "7+",
-    "titleSolid": "years of engineering.",
-    "lead": "For about seven years I designed products in SolidWorks that went into production — with technical documentation and constant contact with production and customers.",
-    "measure": {
-      "start": "0",
-      "end": "7+ years"
-    },
-    "chipsLabel": "Tools and areas",
+"engineering": {
+  "titleOutline": "7+",
+  "titleSolid": "years in engineering.",
+  "lead": "For over 7 years, I've been designing mechanical solutions, preparing technical documentation, and working with production teams and clients to ensure designs can be manufactured efficiently.",
+  "measure": {
+    "start": "0",
+    "end": "7+ years"
+},
+  "chipsLabel": "Tools and areas of expertise",
     "chips": {
       "solidworks": "SolidWorks",
-      "modelling": "3D modelling",
-      "documentation": "Technical documentation",
-      "custom": "Custom designs",
-      "enclosures": "Shower enclosures"
+      "solidedge": "Solid Edge",
+      "autocad": "AutoCAD",
+      "inventor": "Inventor",
+      "creo": "Creo",
+      "draftsight": "DraftSight",
+      "kicad": "KiCad",
+      "documentation": "Dokumentacja techniczna",
+      "custom": "Konstrukcje niestandardowe"
     },
-    "capabilitiesLabel": "Scope of engineering work",
-    "capabilities": {
-      "design": {
-        "title": "Mechanical design",
-        "text": "3D modelling in SolidWorks, custom designs fitted to each customer's situation."
-      },
-      "documentation": {
-        "title": "Technical documentation",
-        "text": "Documentation that tells production what to make and how."
-      },
-      "production": {
-        "title": "Working with production",
-        "text": "Daily contact with production and solving technical problems as they come up."
-      },
-      "client": {
-        "title": "Customer requirements",
-        "text": "Turning customer needs into a solution that can actually be designed and built."
-      }
-    }
-  },
-  "technology": {
-    "titleSolid": "What it's",
-    "titleOutline": "made of.",
-    "lead": "Technologies I use every day — from the interface to mechanical design.",
-    "engineering": "Engineering",
-    "software": "Software",
-    "groupsLabel": "Technology layers",
-    "groups": {
-      "interface": {
-        "title": "Interface"
-      },
-      "backend": {
-        "title": "Backend & data"
-      },
-      "automation": {
-        "title": "AI & automation"
-      },
-      "quality": {
-        "title": "Quality & delivery"
-      },
-      "engineering": {
-        "title": "Engineering"
-      }
-    },
-    "terms": {
-      "modelling-3d": "3D modelling",
-      "technical-documentation": "Technical documentation",
-      "solidworks-macros": "SolidWorks macros",
-      "excel-vba": "Excel VBA"
-    }
-  },
+"capabilitiesLabel": "Engineering expertise",
+  "capabilities": {
+  "design": {
+    "title": "Mechanical Design",
+    "text": "3D modelling in CAD software and designing custom solutions tailored to client requirements."
+},
+"documentation": {
+"title": "Technical Documentation",
+"text": "Preparing technical drawings and documentation to ensure designs can be manufactured correctly."
+},
+"production": {
+"title": "Working with Production",
+"text": "Consulting on design solutions, clarifying technical documentation, and resolving engineering issues."
+},
+"client": {
+"title": "Requirements Analysis",
+"text": "Translating client needs into specific design requirements and feasible solutions."
+}
+}
+},
+"technology": {
+"titleSolid": "My technical",
+"titleOutline": "toolkit.",
+"lead": "The tools I use for mechanical design, software development, and automating technical processes.",
+"engineering": "Engineering",
+"software": "Software Development",
+"groupsLabel": "Technology Stack",
+"groups": {
+"interface": {
+"title": "Frontend"
+},
+"backend": {
+"title": "Backend & Data"
+},
+"automation": {
+"title": "AI & Automation"
+},
+"quality": {
+"title": "Quality & Deployment"
+},
+"engineering": {
+"title": "Engineering"
+}
+},
+"terms": {
+"modelling-3d": "3D Modelling",
+"technical-documentation": "Technical Documentation",
+"solidworks-macros": "SolidWorks Macros",
+"excel-vba": "Excel VBA"
+}
+},
   "about": {
     "title": "I solve technical problems. Code is one of my tools.",
-    "lead": "I’m a <strong>mechanical design engineer</strong> with about seven years of experience. I work in SolidWorks, produce technical documentation and work directly with production and clients. Today I design shower enclosures, many of them custom, each one shaped around a specific client’s situation.",
-    "software": "In 2023 I started programming to build a website for my dad’s photography business, Fotoroman. I kept going: <strong>TypeScript, React, Next.js, Node.js and PostgreSQL</strong>, and a project for a real client in renewable-energy advisory.",
-    "tools": "At work, I’ve also built tools for myself and my team: an Excel VBA template that everyone on the team uses for email replies and quotes, and a SolidWorks macro that generates PNG visualisations with automatic numbering.",
-    "ai": "More recently I’ve been building full-stack and AI projects. <strong>NEXUS</strong> is a ticketing platform with AI classification and RAG, where a human always makes the final call on what the AI suggests.",
-    "next": "I’m looking for a role where engineering and software meet: engineering software, automation, AI or manufacturing technology. I’m based in Poznań and open to on-site, hybrid and remote work.",
-    "photoAlt": "Portrait of Adam Giszter, one half of his face in light and the other in shadow.",
+    "lead": "I've been working as a <strong>mechanical design engineer</strong> for 7 years. I design in SolidWorks, prepare technical documentation, and work closely with production teams and clients. My day-to-day work involves turning specific requirements into solutions that can be designed and manufactured — even when a standard approach isn't enough.",
+    "software": "I started coding in 2023 by building a website for Fotoroman, showing my father's photography passion. Since then, I've built more applications while developing my skills in <strong>TypeScript, React, Next.js, Node.js, and PostgreSQL</strong>. I've also built a website for a client in the renewable energy sector.",
+    "tools": "I also use programming to improve my work as an engineer. I created an Excel template using VBA that my entire team uses to prepare email responses and quotations, as well as a SolidWorks macro that automates PNG visualization exports and sequential numbering. These are the kinds of problems I enjoy solving: repetitive tasks that can be completed faster and more reliably through automation.",
+    "ai": "I'm currently developing projects that combine <strong>software, automation, and AI</strong>. NEXUS is a project for an AI-powered ticket management platform that uses AI for ticket classification and retrieval-augmented generation (RAG) to search a knowledge base. I'm particularly interested in building useful AI tools while keeping humans in control of the final decisions.",
+    "next": "I'm looking for opportunities at the intersection of engineering and software — building tools, automating processes, developing AI solutions, or working on engineering software. I want to build on my experience in a real-world engineering environment while continuing to grow as an engineer who can also design and develop software. I'm based in Poznań, Poland, and open to on-site, hybrid, and remote opportunities.",
+    "photoAlt": "Portrait of Adam Giszter, with one side of his face illuminated.",
     "caption": "{name} — Engineer who codes",
     "contactCta": "Get in touch"
   },
   "contact": {
     "titleOutline": "Let's close",
     "titleSolid": "the gap.",
-    "lead": "Open to software, AI and automation roles — especially where engineering context matters.",
+    "lead": "I'm looking for opportunities to build software, automate processes, and develop AI solutions — especially where engineering experience helps solve real-world problems.",
     "linksLabel": "Contact links",
     "form": {
       "title": "Send a message",
