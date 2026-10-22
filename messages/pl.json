@@ -225,6 +225,9 @@
     "languageLabel": "Język w stopce"
   },
   "seo": {
+    "person": {
+      "jobTitle": "Inżynier mechanik i programista"
+    },
     "siteName": "Adam — Inżynier, który koduje",
     "home": {
       "title": "Inżynier, który koduje — inżynier mechanik tworzący oprogramowanie",
@@ -232,6 +235,11 @@
     },
     "project": {
       "description": "{title} — {subtitle}. Case study: problem, architektura, decyzje techniczne i rezultaty."
+    },
+    "og": {
+      "name": "Adam Giszter",
+      "headline": "Inżynier, który koduje.",
+      "tagline": "Inżynieria mechaniczna × software × AI × automatyzacja"
     }
   }
 }
