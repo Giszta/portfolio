@@ -50,6 +50,12 @@ export const TECH = {
   vue: { label: "Vue 3", icon: siVuedotjs },
   vuex: { label: "Vuex", icon: null },
   vite: { label: "Vite", icon: siVite },
+  solidedge: { label: "Solid Edge", icon: null },
+  inventor: { label: "Inventor", icon: null },
+  creo: { label: "Creo", icon: null },
+  draftsight: { label: "DraftSight", icon: null },
+  kicad: { label: "KiCad", icon: null },
+  autocad: { label: "AutoCAD", icon: null },
 } as const satisfies Record<string, TechDefinition>;
 
 export type TechId = keyof typeof TECH;

@@ -44,7 +44,7 @@
     "availability": "Otwarty na nowe możliwości · {city} · stacjonarnie / hybrydowo / zdalnie",
     "titleOutline": "Inżynier,",
     "titleSolid": "który koduje.",
-    "lead": "{name} — konstruktor z ponad 7-letnim doświadczeniem w projektowaniu i produkcji, który buduje oprogramowanie dla procesów technicznych. Ta sama część, dwa widoki: rysunek po jednej stronie przekroju, kod po drugiej.",
+    "lead": "{name} — konstruktor z ponad 7-letnim doświadczeniem, który łączy projektowanie mechaniczne z programowaniem i automatyzacją procesów technicznych.",
     "ctaPrimary": "Zobacz projekty",
     "cvFormat": "PDF",
     "dragHint": "Przeciągnij linię A–A albo ustaw na niej fokus i użyj strzałek",
@@ -95,7 +95,7 @@
   "engineering": {
     "titleOutline": "7+",
     "titleSolid": "lat inżynierii.",
-    "lead": "Przez około siedem lat projektowałem w SolidWorksie produkty, które trafiały na produkcję — z dokumentacją techniczną i w stałym kontakcie z produkcją i klientami.",
+    "lead": "Od ponad 7 lat projektuję rozwiązania mechaniczne, przygotowuję dokumentację techniczną i współpracuję z produkcją oraz klientami, dbając o to, by projekty można było sprawnie zrealizować.",
     "measure": {
       "start": "0",
       "end": "7+ lat"
@@ -103,41 +103,45 @@
     "chipsLabel": "Narzędzia i obszary",
     "chips": {
       "solidworks": "SolidWorks",
-      "modelling": "Modelowanie 3D",
+      "solidedge": "Solid Edge",
+      "autocad": "AutoCAD",
+      "inventor": "Inventor",
+      "creo": "Creo",
+      "draftsight": "DraftSight",
+      "kicad": "KiCad",
       "documentation": "Dokumentacja techniczna",
-      "custom": "Konstrukcje niestandardowe",
-      "enclosures": "Kabiny prysznicowe"
+      "custom": "Konstrukcje niestandardowe"
     },
     "capabilitiesLabel": "Zakres pracy inżynierskiej",
     "capabilities": {
       "design": {
         "title": "Projektowanie mechaniczne",
-        "text": "Modelowanie 3D w SolidWorksie, konstrukcje niestandardowe dopasowane do sytuacji klienta."
+        "text": "Modelowanie 3D w programach CAD i projektowanie niestandardowych rozwiązań dopasowanych do wymagań klienta."
       },
       "documentation": {
         "title": "Dokumentacja techniczna",
-        "text": "Dokumentacja, według której produkcja wie, co i jak wykonać."
+        "text": "Przygotowywanie rysunków i dokumentacji umożliwiających prawidłowe wykonanie projektu."
       },
       "production": {
         "title": "Współpraca z produkcją",
-        "text": "Codzienny kontakt z produkcją i rozwiązywanie problemów technicznych na bieżąco."
+        "text": "Konsultowanie rozwiązań konstrukcyjnych, wyjaśnianie dokumentacji i rozwiązywanie problemów technicznych."
       },
       "client": {
-        "title": "Wymagania klienta",
-        "text": "Przekładanie potrzeb klienta na rozwiązanie, które da się zaprojektować i wykonać."
+        "title": "Analiza wymagań",
+        "text": "Przekładanie potrzeb klienta na konkretne założenia projektowe i rozwiązania możliwe do wykonania."
       }
     }
   },
   "technology": {
-    "titleSolid": "Z czego jest",
-    "titleOutline": "zrobione.",
-    "lead": "Technologie, których używam na co dzień — od interfejsu po konstrukcję.",
+    "titleSolid": "Mój warsztat",
+    "titleOutline": "techniczny.",
+    "lead": "Narzędzia, których używam do projektowania mechanicznego, tworzenia oprogramowania i automatyzacji procesów technicznych.",
     "engineering": "Inżynieria",
     "software": "Programowanie",
     "groupsLabel": "Warstwy technologii",
     "groups": {
       "interface": {
-        "title": "Interfejs"
+        "title": "Frontend"
       },
       "backend": {
         "title": "Backend i dane"
@@ -146,7 +150,7 @@
         "title": "AI i automatyzacja"
       },
       "quality": {
-        "title": "Jakość i dostarczanie"
+        "title": "Jakość i wdrażanie"
       },
       "engineering": {
         "title": "Inżynieria"
@@ -161,19 +165,19 @@
   },
   "about": {
     "title": "Rozwiązuję problemy techniczne. Kod to jedno z moich narzędzi.",
-    "lead": "Jestem <strong>konstruktorem mechanikiem</strong> z około siedmioletnim doświadczeniem. Pracuję w SolidWorksie, tworzę dokumentację techniczną i na co dzień współpracuję z produkcją i klientami. Obecnie projektuję kabiny prysznicowe, często niestandardowe, każdą dopasowaną do konkretnej sytuacji klienta.",
-    "software": "W 2023 roku zacząłem programować, żeby zbudować stronę dla firmy fotograficznej mojego taty — Fotoroman. Poszedłem dalej: <strong>TypeScript, React, Next.js, Node.js i PostgreSQL</strong> oraz projekt dla prawdziwego klienta z branży doradztwa w zakresie OZE.",
-    "tools": "W pracy zbudowałem też narzędzia dla siebie i zespołu: szablon w Excelu z VBA, z którego cały zespół korzysta przy odpowiedziach mailowych i wycenach, oraz makro do SolidWorksa generujące wizualizacje PNG z automatyczną numeracją.",
-    "ai": "Ostatnio buduję projekty full-stack i AI. <strong>NEXUS</strong> to platforma do obsługi zgłoszeń z klasyfikacją AI i RAG, w której ostateczną decyzję zawsze podejmuje człowiek.",
-    "next": "Szukam roli, w której spotykają się inżynieria i oprogramowanie: oprogramowanie inżynierskie, automatyzacja, AI lub technologie produkcyjne. Mieszkam w Poznaniu i jestem otwarty na pracę stacjonarną, hybrydową i zdalną.",
-    "photoAlt": "Portret: Adam Giszter, jedna połowa twarzy w świetle, druga w cieniu.",
-    "caption": "{name} — Engineer who codes",
+    "lead": "Od 7 lat pracuję jako <strong>konstruktor mechanik</strong>. Projektuję w SolidWorksie, przygotowuję dokumentację techniczną i współpracuję z produkcją oraz klientami. Na co dzień przekładam konkretne wymagania na rozwiązania, które można zaprojektować i wykonać — również wtedy, gdy standardowe podejście nie wystarcza.",
+    "software": "Programowanie zacząłem w 2023 roku od stworzenia strony internetowej dla Fotoroman, żeby przedstawić pasję mojego taty. Z czasem zacząłem budować kolejne aplikacje, rozwijając umiejętności w <strong>TypeScript, React, Next.js, Node.js i PostgreSQL</strong>. Mam też doświadczenie w tworzeniu strony internetowej dla klienta z branży OZE.",
+    "tools": "Programowanie wykorzystuję również w pracy konstruktora. Stworzyłem szablon w Excelu z VBA, z którego korzysta cały zespół przy przygotowywaniu odpowiedzi mailowych i wycen, oraz makro do SolidWorksa automatyzujące generowanie wizualizacji PNG i ich numerację. To właśnie takie problemy najchętniej rozwiązuję: powtarzalne zadania, które można wykonać szybciej i bardziej niezawodnie.",
+    "ai": "Obecnie rozwijam projekty łączące <strong>oprogramowanie, automatyzację i AI</strong>. NEXUS to projekt platformy do obsługi zgłoszeń, która wykorzystuje AI do klasyfikacji i wyszukiwania informacji w bazie wiedzy (RAG). Szczególnie interesuje mnie to, jak budować użyteczne narzędzia AI, zachowując kontrolę człowieka nad ostatecznymi decyzjami.",
+    "next": "Szukam pracy na styku inżynierii i oprogramowania — przy tworzeniu narzędzi, automatyzacji procesów, rozwiązań AI lub oprogramowania inżynierskiego. Chcę wykorzystać doświadczenie zdobyte w realnym środowisku technicznym i dalej rozwijać się jako inżynier, który potrafi również projektować i tworzyć oprogramowanie. Mieszkam w Poznaniu; jestem otwarty na pracę stacjonarną, hybrydową i zdalną.",
+    "photoAlt": "Portret Adama Gisztera, z twarzą oświetloną z jednej strony.",
+    "caption": "{name} — Inżynier, który koduje",
     "contactCta": "Napisz do mnie"
   },
   "contact": {
     "titleOutline": "Połączmy",
     "titleSolid": "te światy.",
-    "lead": "Interesują mnie role związane z oprogramowaniem, AI i automatyzacją — szczególnie tam, gdzie doświadczenie inżynierskie ma znaczenie.",
+    "lead": "Szukam możliwości tworzenia oprogramowania, automatyzacji i rozwiązań AI — szczególnie tam, gdzie doświadczenie inżynierskie pomaga rozwiązywać realne problemy.",
     "linksLabel": "Linki kontaktowe",
     "form": {
       "title": "Napisz wiadomość",

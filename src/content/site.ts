@@ -21,7 +21,7 @@ export interface SiteConfig {
 
 export const siteConfig = {
   name: "Adam Giszter",
-  shortName: "Giszter",
+  shortName: "Giszter.com",
   location: { countryCode: "PL", latitude: 52, longitude: 16 },
   links: {
     github: "https://github.com/Giszta",

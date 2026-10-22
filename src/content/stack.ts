@@ -45,7 +45,6 @@ export const STACK = [
     items: [
       tech("claude-api"),
       tech("rag"),
-      tech("python"),
       term("solidworks-macros"),
       term("excel-vba"),
     ],
@@ -55,15 +54,13 @@ export const STACK = [
     view: "software",
     items: [
       tech("vitest"),
-      tech("testing-library"),
       tech("playwright"),
       tech("git"),
-      tech("ci-cd"),
     ],
   },
   {
     id: "engineering",
     view: "engineering",
-    items: [tech("solidworks"), term("modelling-3d"), term("technical-documentation")],
+    items: [tech("solidworks"), tech("solidedge"), tech("inventor"), tech("creo"), tech("autocad"), tech("draftsight"), tech("kicad"), ],
   },
 ] as const satisfies readonly StackGroup[];
